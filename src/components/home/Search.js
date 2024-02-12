@@ -1,27 +1,42 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css"; // Optional, for blur-up effect
 import "@fontsource/league-spartan";
 import { IoIosArrowDown } from "react-icons/io";
 import { Select, MenuItem } from "@mui/material";
 import Statchart from "./statsChart";
+import CityCarousel from "./cityCarousel";
+import { Drawer } from "@mui/material";
 
 export default function Search() {
+  const sidebarRef = useRef(null);
+
+  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+
+  const toggleDrawer = () => {
+    setIsDrawerOpen((prev) => !prev);
+  };
+
+  const closeDrawer = () => {
+    setIsDrawerOpen(false);
+  };
+
   const data = [
     { name: "Category 1", value: 50 },
     { name: "Category 2", value: 75 },
     { name: "Category 3", value: 100 },
   ];
   return (
-    <div className="w-full h-[351px] bg-[#372F62] rounded-br-[45px]">
+    <div className="w-full  bg-[#372F62] rounded-br-[45px]">
       {/* menu ,logo */}
-      <div className="flex pt-2 justify-around items-center">
+      <div className="flex pt-2 justify-around items-center flex-wrap">
         <div
           className="w-[59px] h-[42px] rounded-[30px] flex items-center justify-center"
           style={{
             boxShadow: "19px 19px 38px #231e3f,-19px -10px 38px #4b4085",
             background: "#372F62",
           }}
+          onClick={toggleDrawer}
         >
           <LazyLoadImage
             src="/menuIcons.svg"
@@ -30,6 +45,61 @@ export default function Search() {
             // effect="blur" // Optional, for blur-up effect
           />
         </div>
+        <Drawer
+          anchor="left"
+          open={isDrawerOpen}
+          onClose={closeDrawer}
+          variant="temporary"
+          //   style={{ width: "70vw" }}
+          //   sx={{ width: "300px" }}
+          //   className="w-[270px]"
+          PaperProps={{
+            sx: {
+              width: "80vw",
+              background: "#E7C985",
+              //   boxShadow: "24px 24px 47px #1b1736,-24px -24px 47px #251f48;",
+            }, // Adjust the width here
+          }}
+        >
+          <div className="mt-[40px] p-4 flex flex-col pt-5">
+            <button
+              className=" mb-4 p-4 rounded-2xl text-[#372F62] text-[20px] font-bold"
+              style={{
+                background: "linear-gradient(145deg, #f7d78e, #d0b578)",
+                boxShadow: "23px 23px 46px #a69160,-23px -23px 46px #ffffaa",
+              }}
+            >
+              Home
+            </button>
+            <button
+              className="mt-[40px] p-4 rounded-2xl text-[#372F62] text-[20px] font-bold"
+              style={{
+                background: "linear-gradient(145deg, #f7d78e, #d0b578)",
+                boxShadow: "23px 23px 46px #a69160,-1px -11px 20px #ffffaa",
+              }}
+            >
+              Bookings
+            </button>
+            <button
+              className="mt-[60px]  p-4 rounded-2xl text-[#372F62] text-[20px] font-bold"
+              style={{
+                background: "linear-gradient(145deg, #f7d78e, #d0b578)",
+                boxShadow: "23px 23px 46px #a69160,-1px -11px 20px #ffffaa",
+              }}
+            >
+              Top Doctors
+            </button>
+            <button
+              className="mt-[60px] p-4 rounded-2xl text-[#372F62] text-[20px] font-bold"
+              style={{
+                background: "linear-gradient(145deg, #f7d78e, #d0b578)",
+                boxShadow: "23px 23px 46px #a69160,-1px -11px 20px #ffffaa",
+              }}
+            >
+              Our Services
+            </button>
+          </div>
+        </Drawer>
         {/* logo */}
         <div>
           <p className="text-[36px] text-white font-black">
@@ -42,24 +112,10 @@ export default function Search() {
             Ufnuskt
           </p>
         </div>
-        <div className="flex items-center justify-between w-[177px] h-[42px] rounded-[50px] bg-white">
-          <div className="w-[52px] h-[32px] ml-[0.45em]">
-            <LazyLoadImage src="/cityImage1.svg" className="rounded-3xl" />
-          </div>
-          <p className="text-[14px] font-black text-transparent bg-gradient-to-r from-[#E4C17F]  to-[#E48E51] bg-clip-text">
-            50 Cities
-          </p>
-          <div className="mr-4">
-            <p className="text-[#E957C9] font-black text-[12px]">1/3</p>
-            <div className="flex gap-0.5">
-              {" "}
-              <p className="w-[3px] h-[3px] rounded-full bg-[#E957C9]"></p>
-              <p className="bg-[#C8C8C8] rounded-full  w-[3px] h-[3px]"></p>
-              <p className="bg-[#C8C8C8] rounded-full  w-[3px] h-[3px]"></p>
-            </div>
-          </div>
-        </div>
+
+        <CityCarousel />
       </div>
+
       <div className="flex mx-6 items-center gap-1">
         <LazyLoadImage
           src="/target.svg"
@@ -67,17 +123,8 @@ export default function Search() {
           //   className="w-[10px] h-[10px]"
           // effect="blur" // Optional, for blur-up effect
         />
-        {/* <p className="text-[13px] font-bold text-white pt-[4px]">Delhi</p> */}
-        {/* <div className="relative">
-          <select className="text-[13px] font-bold text-white bg-transparent border-none appearance-none">
-            <option value="delhi">Delhi</option>
-            <option value="mumbai">Mumbai</option>
-            <option value="bangalore">Bangalore</option>
-          </select>
-          <div className="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
-            <IoIosArrowDown className="text-white" />
-          </div>
-        </div> */}
+        {/* Sidebar */}
+
         {/* city selector  */}
         <div className="">
           <Select
@@ -116,6 +163,7 @@ export default function Search() {
 
         {/* input search div */}
       </div>
+
       <div className="mx-6 mt-1 relative">
         <input
           type="search"
