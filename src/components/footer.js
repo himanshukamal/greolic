@@ -23,7 +23,7 @@ export default function Footer() {
         </div>
       </div>
       <div className="mt-10 flex justify-center align-center">
-        <LazyLoadImage src="line 5.svg" alt="line" />
+        <LazyLoadImage src="line.svg" alt="line" />
       </div>
       {/* links */}
       <div className="flex space-y-4 flex-col mt-8">
