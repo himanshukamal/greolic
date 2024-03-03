@@ -1,17 +1,19 @@
-// import "./App.css";
 import TopAdvertisement from "./components/TopAdvertisement";
 import Footer from "./components/footer";
 import Search from "./components/home/Search";
 import DentistFeatures from "./components/home/features";
+import Homepage from "./Pages/homepage";
+import LandingPage from "./Pages/landingpage";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 function App() {
   return (
-    <div className="overflow-hidden">
-      <TopAdvertisement />
-      <Search />
-      <DentistFeatures />
-      <Footer />
-    </div>
+    <Router>
+      <Routes>
+        <Route exact path="/" element={<Homepage />} />
+        <Route path="/landing" element={<LandingPage />} />
+      </Routes>
+    </Router>
   );
 }
 
