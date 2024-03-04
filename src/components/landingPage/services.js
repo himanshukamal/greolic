@@ -2,8 +2,10 @@ import React from "react";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import GradientProgressBar from "./GradientProgressbar";
 import ProgressDemo from "./GradientProgressbar";
+import { useWindowSize } from "@react-hook/window-size";
 
 export default function Services() {
+  const [width, height] = useWindowSize();
   return (
     <div>
       <p className="text-[20px] text-[#252525] font-bold mx-4">Our</p>
@@ -99,10 +101,17 @@ export default function Services() {
           </p>
         </div>
         <div className="overflow-visible">
-          <LazyLoadImage
+          {/* <LazyLoadImage
             src="/Holding-Hand-Smart-Phone-Mockup-PhotoRoom.svg"
             alt="phone"
             className="absolute top-[-103px] right-0"
+          /> */}
+          <LazyLoadImage
+            src="/Holding-Hand-Smart-Phone-Mockup-PhotoRoom.svg"
+            alt="phone"
+            className={`absolute  right-0 ${
+              width <= 320 ? "w-[7em] top-[-81px]" : "top-[-103px]" // Set width to 150px for screens <= 320px
+            }`}
           />
         </div>
       </div>

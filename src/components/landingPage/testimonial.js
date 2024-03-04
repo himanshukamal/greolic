@@ -9,7 +9,7 @@ export default function Testimonial() {
         Testimony
       </p>
       {/* card1 */}
-      <div className="h-[224px] rounded-[40px] bg-[#F3EDF4] p-4 mt-4 mx-4">
+      <div className=" rounded-[40px] bg-[#F3EDF4] p-4 mt-4 mx-4">
         <div className="flex items-center justify-center bg-[#F0D4F5] px-4 rounded-full w-fit">
           <p className=" text-[#CA41E1]  font-bold text-center">Root Canal</p>
         </div>
@@ -37,7 +37,7 @@ export default function Testimonial() {
         </div>
       </div>
       {/* card2 */}
-      <div className="h-[224px] rounded-[40px] bg-[#F3EDF4] p-4 mt-4 mx-4 mb-8">
+      <div className=" rounded-[40px] bg-[#F3EDF4] p-4 mt-4 mx-4 mb-8">
         <div className="flex items-center justify-center bg-[#F0D4F5] px-4 rounded-full w-fit">
           <p className=" text-[#CA41E1]  font-bold text-center">Root Canal</p>
         </div>
