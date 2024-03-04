@@ -9,8 +9,60 @@ export default function Specialist() {
         Specialist
       </p>
       {/* specialist carousel */}
-      <div className="flex justify-center">
-        <div className="w-[268px] h-[386px] rounded-[134px] bg-[#fff] p-8 mt-4">
+      <div className="flex justify-center overflow-hidden gap-4">
+        {/* card no 1 */}
+        <div
+          className="w-[268px] h-[386px] rounded-[134px]  p-8 mt-4 shadow-lg"
+          style={{ background: "rgba(255, 255, 255, 0.1)" }}
+        >
+          <div
+            className="w-[208px] h-[208px] rounded-full"
+            style={{ backgroundImage: "url('/specialist1.svg')" }}
+          ></div>
+          <div className="">
+            <p className="text-[#bebebe] font-bold text-[11px] uppercase text-center mt-8">
+              BDS, MDS
+            </p>
+            <p className="text-center text-[20px] font-bold bg-gradient-to-r from-pink-500 to-red-500 text-transparent bg-clip-text">
+              Dr. Brian Stanley
+            </p>
+            <p className="text-center text-[11px] font-bold text-[#252525]">
+              Dental Specialist
+            </p>
+            <div className="flex justify-center mt-2">
+              <LazyLoadImage src="starbutton.svg" alt="" />
+            </div>
+          </div>
+        </div>
+        {/* card no 2 */}
+        <div
+          className="w-[268px] h-[386px] rounded-[134px] bg-[#fff] p-8 mt-4"
+          style={{}}
+        >
+          <div
+            className="w-[208px] h-[208px] rounded-full"
+            style={{ backgroundImage: "url('/specialist1.svg')" }}
+          ></div>
+          <div className="">
+            <p className="text-[#bebebe] font-bold text-[11px] uppercase text-center mt-8">
+              BDS, MDS
+            </p>
+            <p className="text-center text-[20px] font-bold bg-gradient-to-r from-pink-500 to-red-500 text-transparent bg-clip-text">
+              Dr. Brian Stanley
+            </p>
+            <p className="text-center text-[11px] font-bold text-[#252525]">
+              Dental Specialist
+            </p>
+            <div className="flex justify-center mt-2">
+              <LazyLoadImage src="starbutton.svg" alt="" />
+            </div>
+          </div>
+        </div>
+        {/* card no3 */}
+        <div
+          className="w-[268px] h-[386px] rounded-[134px]  p-8 mt-4 shadow-lg"
+          style={{ background: "rgba(255, 255, 255, 0.1)" }}
+        >
           <div
             className="w-[208px] h-[208px] rounded-full"
             style={{ backgroundImage: "url('/specialist1.svg')" }}
