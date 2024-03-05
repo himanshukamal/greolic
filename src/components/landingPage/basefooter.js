@@ -52,7 +52,12 @@ export default function Basefooter() {
       {/* fixed footer */}
       <div className=" h-[90px] fixed bottom-0 max-w-[425px] mx-auto left-0 right-0 z-49 bg-gradient-to-br from-[#E0379E] to-[#EE2B3B] p-4 flex justify-between items-center">
         <div className="flex flex-col justify-center">
-          <LazyLoadImage src="/homeIcon.svg" alt="footer home" />
+          <LazyLoadImage
+            src="/homeicon.svg"
+            alt="footer home"
+            width="30"
+            height="30"
+          />
           <p className="text-white text-[10px] font-bold">Home</p>
         </div>
         <div className="flex flex-col justify-center items-center">
