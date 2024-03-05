@@ -4,7 +4,7 @@ import GradientLineChart from "./linechart";
 export default function Achievement() {
   return (
     <div>
-      <div className="py-4">
+      <div className="py-4 shadow mt-4">
         <p className="text-[20px] text-[#252525] font-bold mx-4">Our</p>
         <p className="text-[36px] text-[#CA3BA1] font-bold leading-[18px] mx-4">
           Achievement

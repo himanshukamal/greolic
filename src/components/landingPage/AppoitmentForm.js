@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import { Select, MenuItem } from "@mui/material";
 import { IoIosArrowDown } from "react-icons/io";
@@ -6,20 +6,34 @@ import "@fontsource/montserrat";
 import "@fontsource/montserrat/800.css";
 
 export default function AppointmentForm() {
+  const logoMenuRef = useRef(null);
+  const [isSticky, setIsSticky] = useState(false);
+  useEffect(() => {
+    const handleScroll = () => {
+      if (logoMenuRef.current) {
+        setIsSticky(logoMenuRef.current.getBoundingClientRect().top <= 0);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
   return (
-    <div className="pb-8 overflow-hidden bg-gradient-to-br from-[#E0379E] to-[#EE2B3B] rounded-bl-[45px] relative">
+    <div className="pb-8 overflow-hidden bg-gradient-to-br from-[#E0379E] to-[#EE2B3B] rounded-bl-[45px] relative top-[30px]">
       <div
-        className="absolute w-[222px] h-[600px] rotate-[32deg] left-[25vw] top-[-52px]  bg-gradient-to-t opacity-10 from-transparent to-white"
+        className="absolute z-[50] w-[222px] h-[600px] rotate-[32deg] left-[25vw] top-[-52px]  bg-gradient-to-t opacity-10 from-transparent to-white"
         // style={{ backgroundColor: "rgba(255, 255, 255, 0.1)" }}
       ></div>
       <div
-        className="absolute w-[222px] h-[600px] rotate-[32deg] left-[-47vw] top-[-164px]  bg-gradient-to-t from-transparent opacity-10 to-white"
+        className="absolute  z-[50] w-[222px] h-[600px] rotate-[32deg] left-[-47vw] top-[-164px]  bg-gradient-to-t from-transparent opacity-10 to-white"
         // style={{ backgroundColor: "rgba(255, 255, 255, 0.1)" }}
       ></div>
       {/* form */}
 
       {/* logo and menu */}
-      <div className="p-4 flex justify-between">
+      <div className="fixed top-[30px] max-w-[425px] mx-auto left-0 right-0 z-49 bg-gradient-to-br from-[#E0379E] to-[#EE2B3B] p-4 flex justify-between">
         <LazyLoadImage
           src="/doclogo.svg"
           alt="My Image"
@@ -67,7 +81,7 @@ export default function AppointmentForm() {
 
       {/* city and clinic div */}
 
-      <div className="w-[196px] h-[50px] rounded-full bg-[#F3EDF4] text-center mx-auto flex items-center justify-evenly">
+      <div className="w-[196px] h-[50px] rounded-full bg-[#F3EDF4] text-center mx-auto flex items-center justify-evenly mt-[86px]">
         <div className="rounded-full w-[30px] h-[30px] bg-[#F3EDF4] drop-shadow-xl grid place-items-center">
           <LazyLoadImage src="/HospitalLocation.svg" alt="Hospital Location" />
         </div>

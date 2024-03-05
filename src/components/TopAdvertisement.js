@@ -6,7 +6,7 @@ import "react-lazy-load-image-component/src/effects/blur.css"; // Optional, for 
 
 export default function TopAdvertisement() {
   return (
-    <div className="h-[30px] bg-[#252525] flex overflow-hidden w-full items-center">
+    <div className="h-[30px] bg-[#252525] flex overflow-hidden w-full items-center fixed max-w-[425px] z-50">
       <div className="flex items-center animate-marquee">
         <LazyLoadImage
           src="/pinkStar.svg"
