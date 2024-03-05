@@ -99,6 +99,10 @@ export default function Services() {
             turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus
             nec fringilla accumsan.
           </p>
+          <div className="flex mt-4">
+            <LazyLoadImage src="appstore.svg" alt="apple" className="mr-2" />
+            <LazyLoadImage src="playstoreicon.svg" alt="apple" />
+          </div>
         </div>
         <div className="overflow-visible">
           {/* <LazyLoadImage
