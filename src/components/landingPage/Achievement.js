@@ -4,12 +4,12 @@ import GradientLineChart from "./linechart";
 export default function Achievement() {
   return (
     <div>
-      <div className="py-4 shadow mt-4">
+      <div className="py-4 shadow mt-4 ">
         <p className="text-[20px] text-[#252525] font-bold mx-4">Our</p>
         <p className="text-[36px] text-[#CA3BA1] font-bold leading-[18px] mx-4">
           Achievement
         </p>
-        <div className="relative rounded-[50px] h-[408px] bg-[#252525] mt-4 shadow-2xl mx-2 overflow-hidden">
+        <div className="relative rounded-[50px] h-[408px] bg-[#252525] mt-4 shadow-2xl mx-2 overflow-hidden ">
           {/* circular bg */}
           <div className="w-[258px] h-[258px] p-14 absolute right-[-65px] top-[-107px] bg-gradient-to-br opacity-10 from-transparent to-white rounded-full">
             <div className="w-full h-full bg-[#252525] rounded-full"></div>
