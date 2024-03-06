@@ -33,7 +33,7 @@ export default function AppointmentForm() {
       {/* form */}
 
       {/* logo and menu */}
-      <div className="z-[50] fixed top-[30px] max-w-[425px] mx-auto left-0 right-0 z-49 bg-gradient-to-br from-[#E0379E] to-[#EE2B3B] p-4 flex justify-between">
+      <div className="z-[50] fixed top-[30px] max-w-[425px] mx-auto left-0 right-0 z-49 bg-gradient-to-br from-[#E0379E] to-[#EE2B3B] p-[0.8rem] flex justify-between">
         <LazyLoadImage
           src="/doclogo.svg"
           alt="My Image"

@@ -2,13 +2,22 @@ import React from "react";
 
 export default function InvoiceBill() {
   return (
-    <div>
-      <div className="mx-2 pt-[150px]">
-        <p className="text-[20px] text-[#252525] font-bold mx-4 pt-4">Your</p>
-        <p className="text-[36px] text-[#CA3BA1] font-bold leading-[18px] mx-4 ">
+    <div className=" ">
+      <div className="backdrop-blur-md bg-gradient-to-br from-[#C133AE] to-[#EE2B3B] rounded-bl-[45px] pl-2 pb-2 ">
+        <p className=" pt-[150px] text-[20px] text-[#fff] opacity-25 font-bold ml-2  leading-[18px] mx-4 pl-2">
+          Your
+        </p>
+        <p className="text-[36px] text-[#fff] font-bold leading-[40px] ml-2 mx-4 pl-2">
           Invoice
         </p>
-        <div className="rounded-[40px] bg-[#FCE7F3] p-4 mt-4 mx-2">
+      </div>
+
+      <div className="mx-2">
+        {/* <p className="text-[20px] text-[#252525] font-bold mx-4 pt-4">Your</p>
+        <p className="text-[36px] text-[#CA3BA1] font-bold leading-[18px] mx-4 ">
+          Invoice
+        </p> */}
+        <div className="rounded-[40px] bg-[#FCE7F3] p-4 mt-16 mx-2">
           <div className="flex justify-between text-[14px] font-semibold">
             <p className="text-[#252525]">consultation fee</p>
             <p className="bg-gradient-to-r from-pink-500 to-red-500 text-transparent bg-clip-text">
