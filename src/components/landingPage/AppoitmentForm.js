@@ -1,13 +1,21 @@
 import React, { useEffect, useRef, useState } from "react";
 import { LazyLoadImage } from "react-lazy-load-image-component";
-import { Select, MenuItem } from "@mui/material";
+import { Select, MenuItem, Drawer } from "@mui/material";
 import { IoIosArrowDown } from "react-icons/io";
 import "@fontsource/montserrat";
 import "@fontsource/montserrat/800.css";
+import "@fontsource/montserrat/600.css";
 
 export default function AppointmentForm() {
   const logoMenuRef = useRef(null);
   const [isSticky, setIsSticky] = useState(false);
+
+  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+
+  const toggleDrawer = () => {
+    setIsDrawerOpen(!isDrawerOpen);
+  };
+
   useEffect(() => {
     const handleScroll = () => {
       if (logoMenuRef.current) {
@@ -21,7 +29,7 @@ export default function AppointmentForm() {
     };
   }, []);
   return (
-    <div className="pb-8 overflow-hidden bg-gradient-to-br from-[#E0379E] to-[#EE2B3B] rounded-bl-[45px] relative top-[30px]">
+    <div className="pb-8 overflow-hidden bg-gradient-to-br from-[#CC3190] to-[#EE2B3B] rounded-bl-[45px] relative top-[30px]">
       <div
         className="absolute z-[51] w-[222px] h-[600px] rotate-[32deg] left-[25vw] top-[-52px]  bg-gradient-to-t opacity-10 from-transparent to-white"
         // style={{ backgroundColor: "rgba(255, 255, 255, 0.1)" }}
@@ -33,7 +41,7 @@ export default function AppointmentForm() {
       {/* form */}
 
       {/* logo and menu */}
-      <div className="z-[50] fixed top-[30px] max-w-[425px] mx-auto left-0 right-0 z-49 bg-gradient-to-br from-[#E0379E] to-[#EE2B3B] p-[0.8rem] flex justify-between">
+      <div className="z-[51] fixed top-[30px] max-w-[425px] mx-auto left-0 right-0 z-49 bg-gradient-to-br from-[#E0379E] to-[#EE2B3B] p-[0.8rem] flex justify-between">
         <LazyLoadImage
           src="/doclogo.svg"
           alt="My Image"
@@ -74,7 +82,182 @@ export default function AppointmentForm() {
             <MenuItem value="bangalore">Bangalore</MenuItem>
             {/* Add more cities here */}
           </Select>
-          <LazyLoadImage src="/sidemenu.svg" />
+          {/* <LazyLoadImage src="/sidemenu.svg" className="" /> */}
+          <button onClick={toggleDrawer}>
+            <LazyLoadImage src="/sidemenu.svg" />
+          </button>
+          <Drawer anchor="right" open={isDrawerOpen} onClose={toggleDrawer}>
+            <div className="p-4 w-[80vw] bg-[#FCF2FC]">
+              {/* Add your drawer content here */}
+              <div className="flex justify-between">
+                <LazyLoadImage src="/sidebarLogo.svg" alt="logo" />
+                <button onClick={toggleDrawer}>
+                  <LazyLoadImage src="X.svg" alt="closeicon" />
+                </button>
+              </div>
+              <div className="relative mt-6 h-[99px] rounded-[20px] bg-gradient-to-br from-[#AD37E0] to-[#EE2B3B] p-4 flex shadow-xl shadow-[#ebabd5]">
+                <div className="w-[65%]">
+                  <p className="text-white font-bold text-[12px] leading-[15px]">
+                    Download app and unlock all features.
+                  </p>
+                  <p className="text-white text-[8px]">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    Etiam eu turpis molestie.
+                  </p>
+                  <div className="flex gap-2">
+                    <LazyLoadImage
+                      src="appstore.svg"
+                      alt="appstore"
+                      className="w-[56px]"
+                    />
+                    <LazyLoadImage
+                      src="playstoreicon.svg"
+                      alt="play store"
+                      className="w-[56px]"
+                    />
+                  </div>
+                </div>
+                <LazyLoadImage
+                  src="red3.svg"
+                  alt="mobile1"
+                  className="absolute right-[3.4rem] top-[-15px] z-4"
+                />
+                <LazyLoadImage
+                  src="red1.svg"
+                  alt="mobile1"
+                  className="absolute right-4 top-[-1px] z-5"
+                />
+              </div>
+              <div className="mt-4 flex items-center">
+                <LazyLoadImage
+                  src="guestavatar.svg"
+                  alt="mobile1"
+                  className="mr-2"
+                />
+                <div className="flex flex-col">
+                  <p className="text-bold text-[20px] font-bold text-[#252525]">
+                    Guest User
+                  </p>
+                  <p className="text-gray-600 text-[12px]">User ID</p>
+                </div>
+
+                {/* links */}
+              </div>
+              <div className="rounded-full bg-white flex h-[48px] items-center px-4 mt-4">
+                <LazyLoadImage
+                  src="icons/account-circle.svg"
+                  alt="mobile1"
+                  className="mr-2 w-[24px] h-[24px]"
+                />
+                <p className="font-semibold">Profile</p>
+              </div>
+              <div className="mt-2 rounded-full bg-transparent focus:bg-white flex h-[48px] items-center px-4">
+                <LazyLoadImage
+                  src="icons/Frame124.svg"
+                  alt="mobile1"
+                  className="mr-2 w-[24px] h-[24px]"
+                />
+                <p className="font-semibold">Upcoming Appointments</p>
+                <LazyLoadImage
+                  src="icons/redlock.svg"
+                  alt="mobile1"
+                  className="ml-2 mr-2 w-[14px] h-[14px]"
+                />
+              </div>
+              <div className="mt-2 rounded-full bg-transparent focus:bg-white flex h-[48px] items-center px-4">
+                <LazyLoadImage
+                  src="icons/Notification.svg"
+                  alt="mobile1"
+                  className="mr-2 w-[24px] h-[24px]"
+                />
+                <p className="font-semibold">Previous Appointments</p>
+                <LazyLoadImage
+                  src="icons/redlock.svg"
+                  alt="mobile1"
+                  className="ml-2 mr-2 w-[14px] h-[14px]"
+                />
+              </div>
+              <div className="mt-2 rounded-full bg-transparent focus:bg-white flex h-[48px] items-center px-4">
+                <LazyLoadImage
+                  src="icons/Settings.svg"
+                  alt="mobile1"
+                  className="mr-2 w-[24px] h-[24px]"
+                />
+                <p className="font-semibold">Top Doctors</p>
+                <LazyLoadImage
+                  src="icons/redlock.svg"
+                  alt="mobile1"
+                  className="ml-2 mr-2 w-[14px] h-[14px]"
+                />
+              </div>
+              <div className="mt-2 rounded-full bg-transparent focus:bg-white flex h-[48px] items-center px-4">
+                <LazyLoadImage
+                  src="icons/Invoice.svg"
+                  alt="mobile1"
+                  className="mr-2 w-[24px] h-[24px]"
+                />
+                <p className="font-semibold">Insurance</p>
+                <LazyLoadImage
+                  src="icons/redlock.svg"
+                  alt="mobile1"
+                  className="ml-2 mr-2 w-[14px] h-[14px]"
+                />
+              </div>
+              <div className="mt-2 rounded-full bg-transparent focus:bg-white flex h-[48px] items-center px-4">
+                <LazyLoadImage
+                  src="icons/Paper Clip.svg"
+                  alt="mobile1"
+                  className="mr-2 w-[24px] h-[24px]"
+                />
+                <p className="font-semibold">Privacy Policy</p>
+                <LazyLoadImage
+                  src="icons/redlock.svg"
+                  alt="mobile1"
+                  className="ml-2 mr-2 w-[14px] h-[14px]"
+                />
+              </div>
+              <div className="mt-2 rounded-full bg-transparent focus:bg-white flex h-[48px] items-center px-4">
+                <LazyLoadImage
+                  src="icons/paper.svg"
+                  alt="mobile1"
+                  className="mr-2 w-[24px] h-[24px]"
+                />
+                <p className="font-semibold">terms and conditions</p>
+                <LazyLoadImage
+                  src="icons/redlock.svg"
+                  alt="mobile1"
+                  className="ml-2 mr-2 w-[14px] h-[14px]"
+                />
+              </div>
+              <div className="flex items-center px-4">
+                <div
+                  style={{
+                    backgroundImage: "url('/Ellipse 175.svg')",
+                    backgroundPosition: "center",
+                    objectFit: "cover",
+                  }}
+                  className="w-[56px] h-[56px] grid place-items-center relative"
+                >
+                  <div
+                    className="w-[36px] h-[36px] grid place-items-center mr-[4px] mb-[4px]"
+                    style={{
+                      backgroundImage: "url('/Ellipse 176.svg')",
+                      backgroundPosition: "center",
+                      objectFit: "cover",
+                    }}
+                  >
+                    <LazyLoadImage
+                      src="Power.svg"
+                      alt="mobile1"
+                      className="w-[14px] h-[14px] mr-[6px] mb-[6px]"
+                    />
+                  </div>
+                  <div className="absolute top-[0.5em] right-[1.8em] rounded-full rotate-[45deg] bg-gradient-to-tr from-[#EAC7DB] to-[#F0CBE0] w-[18px] h-[21px] opacity-20"></div>
+                </div>
+                <p className="font-semibold mb-[6px]">Login</p>
+              </div>
+            </div>
+          </Drawer>
         </div>
       </div>
       {/* end logo menu */}
