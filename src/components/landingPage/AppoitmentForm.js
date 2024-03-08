@@ -252,7 +252,14 @@ export default function AppointmentForm() {
                       className="w-[14px] h-[14px] mr-[6px] mb-[6px]"
                     />
                   </div>
-                  <div className="absolute top-[0.5em] right-[1.8em] rounded-full rotate-[45deg] bg-gradient-to-tr from-[#EAC7DB] to-[#F0CBE0] w-[18px] h-[21px] opacity-20"></div>
+                  {/* bg-gradient-to-tr from-[#F0CBE0] to-[#F0CBE0]  */}
+                  <div
+                    className="absolute top-[0.6em] right-[1.7em] rounded-full rotate-[45deg] w-[18px] h-[21px] "
+                    style={{
+                      backgroundImage:
+                        "linear-gradient(to top, rgba(234,199,219,1) 0%, rgba(240,203,224,0) 100%)",
+                    }}
+                  ></div>
                 </div>
                 <p className="font-semibold mb-[6px]">Login</p>
               </div>
