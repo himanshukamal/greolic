@@ -5,12 +5,14 @@ import { IoIosArrowDown } from "react-icons/io";
 import "@fontsource/montserrat";
 import "@fontsource/montserrat/800.css";
 import "@fontsource/montserrat/600.css";
+import { useWindowSize } from "@react-hook/window-size";
 
 export default function AppointmentForm() {
   const logoMenuRef = useRef(null);
   const [isSticky, setIsSticky] = useState(false);
 
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+  const [width, height] = useWindowSize();
 
   const toggleDrawer = () => {
     setIsDrawerOpen(!isDrawerOpen);
@@ -87,7 +89,7 @@ export default function AppointmentForm() {
             <LazyLoadImage src="/sidemenu.svg" />
           </button>
           <Drawer anchor="right" open={isDrawerOpen} onClose={toggleDrawer}>
-            <div className="p-4 w-[80vw] bg-[#FCF2FC]">
+            <div className="p-4 w-[80vw] bg-[#FCF2FC] h-dvh">
               {/* Add your drawer content here */}
               <div className="flex justify-between">
                 <LazyLoadImage src="/sidebarLogo.svg" alt="logo" />
@@ -95,7 +97,11 @@ export default function AppointmentForm() {
                   <LazyLoadImage src="X.svg" alt="closeicon" />
                 </button>
               </div>
-              <div className="relative mt-6 h-[99px] rounded-[20px] bg-gradient-to-br from-[#AD37E0] to-[#EE2B3B] p-4 flex shadow-xl shadow-[#ebabd5]">
+              <div
+                className={`relative mt-6 rounded-[20px] bg-gradient-to-br from-[#AD37E0] to-[#EE2B3B] p-4 flex shadow-xl shadow-[#ebabd5] ${
+                  width <= 422 ? "h-[110px]" : "h-[99px]"
+                }`}
+              >
                 <div className="w-[65%]">
                   <p className="text-white font-bold text-[12px] leading-[15px]">
                     Download app and unlock all features.
@@ -229,7 +235,7 @@ export default function AppointmentForm() {
                   className="ml-2 mr-2 w-[14px] h-[14px]"
                 />
               </div>
-              <div className="flex items-center px-4">
+              <div className="flex items-center px-4 mt-2">
                 <div
                   style={{
                     backgroundImage: "url('/Ellipse 175.svg')",
