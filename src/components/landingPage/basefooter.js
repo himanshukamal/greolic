@@ -32,11 +32,15 @@ export default function Basefooter() {
             </p>
           </div>
           <div className="flex flex-col">
-            <p className="text-[#93607D] uppercase font-bold my-1">
+            <p className="text-[#93607D] uppercase font-semibold my-1">
               Our Services
             </p>
-            <p className="text-[#93607D] uppercase font-bold my-1">Reviews</p>
-            <p className="text-[#93607D] uppercase font-bold my-1">Insurance</p>
+            <p className="text-[#93607D] uppercase font-semibold my-1">
+              Reviews
+            </p>
+            <p className="text-[#93607D] uppercase font-semibold my-1">
+              Insurance
+            </p>
           </div>
         </div>
       </div>
