@@ -34,7 +34,6 @@ export default function AppointmentForm() {
     setSelectedDate(date);
   };
 
-
   useEffect(() => {
     const timer = setTimeout(() => {
       setShowModal(true);
@@ -393,13 +392,13 @@ export default function AppointmentForm() {
       <div className="mx-4 flex flex-col space-y-4">
         <input
           placeholder="Enter Name"
-          className="bg-transparent rounded-full h-[45px] shadow-xl p-2 mt-8 text-white font-semibold placeholder:text-white focus:outline-none "
+          className="backdrop-blur bg-white bg-opacity-10  rounded-full h-[45px] shadow-xl p-2 mt-8 text-white font-semibold placeholder:text-white focus:outline-none "
         />
 
         {/* Choose Date & Time  */}
         <CustomDropDown
           trigger={
-            <div className="bg-transparent rounded-full h-[45px] shadow-xl p-2 text-start   text-white font-semibold">
+            <div className="backdrop-blur bg-white bg-opacity-10 rounded-full h-[45px] shadow-xl p-2 text-start   text-white font-semibold">
               Choose Date & Time
             </div>
           }
@@ -420,7 +419,6 @@ export default function AppointmentForm() {
 
                 <TimeSelector onSelectTime={handleTimeSelect} />
 
-
                 <div className="my-4 mx-1 px-4 py-4 bg-[#252525] rounded-full flex justify-between ">
                   <h2 className="text-[16px] font-[900]  bg-gradient-to-br from-[#AD37E0] to-[#EE2B3B] text-transparent bg-clip-text">
                     {selectedDate} 2024, {selectedTime}
@@ -436,12 +434,12 @@ export default function AppointmentForm() {
         {/* Choose Services  */}
         <CustomDropDown
           trigger={
-            <div className="bg-transparent rounded-full h-[45px] shadow-xl p-2 text-start   text-white font-semibold  ">
+            <div className="backdrop-blur bg-white bg-opacity-10 rounded-full h-[45px] shadow-xl p-2 text-start   text-white font-semibold  ">
               Choose Services
             </div>
           }
           content={
-            <div className="bg-[#FCF2FD] bottom-6 min-w-96 max-h-[268px] overflow-y-scroll my-4 p-4 rounded-3xl">
+            <div className="bg-[#FCF2FD] bottom-6  max-h-[268px] overflow-y-scroll my-4 p-4 rounded-3xl">
               <h3 className="text-[16px] text-[#AD648D] font-semibold border-b border-[#F5D3E7] my-1 p-1 pb-2 ">
                 Dental Braces
               </h3>
@@ -471,13 +469,13 @@ export default function AppointmentForm() {
         {/* Choose Doctor  */}
         <CustomDropDown
           trigger={
-            <div className="bg-transparent rounded-full h-[45px] shadow-xl p-2 text-start   text-white font-semibold  ">
+            <div className="backdrop-blur bg-white bg-opacity-10 rounded-full h-[45px] shadow-xl p-2 text-start   text-white font-semibold  ">
               Choose Doctor
             </div>
           }
           content={
             // Main Container
-            <div className="bg-[#FCF2FD] bottom-6 min-w-96 max-h-[389px] overflow-y-scroll my-4 px-4 py-1 rounded-3xl  ">
+            <div className="bg-[#FCF2FD] bottom-6 max-h-[389px] overflow-y-scroll my-4 px-4 py-1 rounded-3xl  ">
               {/* (BDS, MDS)  */}
               <div className="bg-white h-[77px] flex my-4 p-1  rounded-3xl ">
                 <div className="m-auto">
@@ -629,12 +627,12 @@ export default function AppointmentForm() {
         {/* Choose consultation  */}
         <CustomDropDown
           trigger={
-            <div className="bg-transparent rounded-full h-[45px] shadow-xl p-2 text-start   text-white font-semibold  ">
+            <div className="backdrop-blur bg-white bg-opacity-10 rounded-full h-[45px] shadow-xl p-2 text-start   text-white font-semibold  ">
               Choose consultation
             </div>
           }
           content={
-            <div className="bg-[#FCF2FD] bottom-6 min-w-96 max-h-[268px] overflow-y-scroll my-4 p-4 rounded-3xl  ">
+            <div className="bg-[#FCF2FD] bottom-6  max-h-[268px] overflow-y-scroll my-4 p-4 rounded-3xl  ">
               <h3 className="text-[16px] text-[#AD648D] font-semibold border-b border-[#F5D3E7] my-1 p-1 pb-2 ">
                 Video Call
               </h3>
