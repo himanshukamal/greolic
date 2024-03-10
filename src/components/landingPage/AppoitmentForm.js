@@ -7,6 +7,9 @@ import "@fontsource/montserrat/800.css";
 import "@fontsource/montserrat/600.css";
 import { useWindowSize } from "@react-hook/window-size";
 import CustomDropDown from "../custom-dropdown";
+import { Dialog, DialogOverlay } from "@radix-ui/react-dialog";
+import { DialogTrigger, DialogContent } from "@radix-ui/react-dialog";
+import { Modal, Button } from "@mui/material";
 
 export default function AppointmentForm() {
   const logoMenuRef = useRef(null);
@@ -14,6 +17,34 @@ export default function AppointmentForm() {
 
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const [width, height] = useWindowSize();
+  const [showModal, setShowModal] = useState(false);
+  const [showAppDownloadModal, setShowAppDownloadModal] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setShowModal(true);
+    }, 3000);
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  const handleClose = () => {
+    setShowModal(false);
+  };
+
+  const handleShowAppDownloadModal = () => {
+    console.log(" you are inside showAppDownloadModal");
+
+    setShowAppDownloadModal(true);
+    // setShowModal(false);
+  };
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setShowModal(true);
+    }, 3000);
+
+    return () => clearTimeout(timer);
+  }, []);
 
   const toggleDrawer = () => {
     setIsDrawerOpen(!isDrawerOpen);
@@ -351,13 +382,18 @@ export default function AppointmentForm() {
         />
         <CustomDropDown
           trigger={
-            <div className="bg-transparent rounded-full h-[45px] shadow-xl p-2 text-start   text-white font-semibold  ">
+            <div className="bg-transparent rounded-full h-[45px] shadow-xl p-2 text-start   text-white font-semibold">
               Choose Date & Time
             </div>
           }
+          // ${
+          //   width < 321 ? `w-[300px]` : `w-[358px]`
+          // }
           content={
             <>
-              <div className="bg-[#FCF2FD] bottom-6 min-w-96 min-h-[500px] my-2 py-4 px-6 rounded-3xl  ">
+              <div
+                className={`bg-[#FCF2FD] bottom-6   min-h-[500px] my-2 py-4 px-6 rounded-3xl`}
+              >
                 <h3 className=" mt-2 mb-4  text-[13px] font-bold  text-[#252525] ">
                   Date
                 </h3>
@@ -486,7 +522,7 @@ export default function AppointmentForm() {
             </div>
           }
           content={
-            <div className="bg-[#FCF2FD] bottom-6 min-w-96 max-h-[268px] overflow-y-scroll my-4 p-4 rounded-3xl  ">
+            <div className="bg-[#FCF2FD] bottom-6 min-w-96 max-h-[268px] overflow-y-scroll my-4 p-4 rounded-3xl">
               <h3 className="text-[16px] text-[#AD648D] font-semibold border-b border-[#F5D3E7] my-1 p-1 pb-2 ">
                 Dental Braces
               </h3>
@@ -695,6 +731,74 @@ export default function AppointmentForm() {
           Book Now
         </button>
       </div>
+      {/* Dialog Trigger */}
+      {showModal && (
+        <div className="fixed inset-0 flex items-center justify-center bg-gray-500 bg-opacity-75 z-60 min-w-[300px]">
+          <div
+            className="bg-white p-2 rounded-lg relative h-[501px]"
+            style={{
+              backgroundImage: "url('/onboardingbg.svg')",
+              backgroundPosition: "center",
+              backgroundRepeat: "no-repeat",
+              borderRadius: "40px",
+            }}
+          >
+            <div
+              className="h-[280px] relative mb-8"
+              style={{ backgroundImage: "url('/pngwing.svg')" }}
+            ></div>
+            <div
+              className="h-[199px] w-[199px] absolute top-5 left-[20vw]"
+              style={{
+                backgroundImage: "url('/giftbox.svg')",
+                backgroundPosition: "center",
+              }}
+            ></div>
+
+            {/* <LazyLoadImage
+              src="/giftbox.svg"
+              alt="bg"
+              className="absolute top-[-5em] h-[199px] w-[199px]"
+            /> */}
+            <h2 className="text-2xl font-bold mb-4 text-transparent">
+              This is a Tailwind CSS modal!
+            </h2>
+            {/* <p className="mb-4">Triggered after 3 seconds.</p> */}
+            <button className="absolute right-4 top-4" onClick={handleClose}>
+              <LazyLoadImage src="/roundedclose.svg" alt="Close" />
+            </button>
+            <button
+              onClick={handleShowAppDownloadModal}
+              className="px-8 text-white rounded-full absolute bottom-[1.75em] right-[.85em] h-[50px] bg-gradient-to-br from-[#AD37E0] to-[#EE2B3B] font-bold uppercase text-[14px]"
+            >
+              Start Booking
+            </button>
+          </div>
+        </div>
+      )}
+
+      {showAppDownloadModal && (
+        <div className="fixed inset-0 flex items-center justify-center bg-gray-500 bg-opacity-75 z-61 min-w-[300px]">
+          <div className="bg-white h-[467px] p-4 rounded-[40px] mx-2">
+            <LazyLoadImage src="/downloadapp.svg" alt="download app" />
+            <div className="flex justify-around mt-4">
+              <button
+                // onClick={setShowAppDownloadModal(false)}
+                onClick={() => setShowAppDownloadModal(false)}
+                className="px-8 bg-[#FCE7F3] text-[#CB76A7] text-[14px] rounded-full h-[50px] font-bold uppercase"
+              >
+                Close
+              </button>
+              <button
+                onClick={handleShowAppDownloadModal}
+                className="px-8 text-white rounded-full  h-[50px] bg-gradient-to-br from-[#AD37E0] to-[#EE2B3B] font-bold uppercase text-[14px]"
+              >
+                Download app
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

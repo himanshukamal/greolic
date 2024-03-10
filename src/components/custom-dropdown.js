@@ -10,7 +10,7 @@ export default function CustomDropDown({ trigger, content }) {
       </DropdownMenu.Trigger>
 
       <DropdownMenu.Portal>
-        <DropdownMenu.Content className=" ">{content}</DropdownMenu.Content>
+        <DropdownMenu.Content className="">{content}</DropdownMenu.Content>
       </DropdownMenu.Portal>
     </DropdownMenu.Root>
   );
