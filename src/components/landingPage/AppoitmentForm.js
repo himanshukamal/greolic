@@ -7,9 +7,11 @@ import "@fontsource/montserrat/800.css";
 import "@fontsource/montserrat/600.css";
 import { useWindowSize } from "@react-hook/window-size";
 import CustomDropDown from "../custom-dropdown";
-import { Dialog, DialogOverlay } from "@radix-ui/react-dialog";
-import { DialogTrigger, DialogContent } from "@radix-ui/react-dialog";
-import { Modal, Button } from "@mui/material";
+// import { Dialog, DialogOverlay } from "@radix-ui/react-dialog";
+// import { DialogTrigger, DialogContent } from "@radix-ui/react-dialog";
+// import { Modal, Button } from "@mui/material";
+import DateSelector from "../date-selector";
+import TimeSelector from "../time-selector";
 
 export default function AppointmentForm() {
   const logoMenuRef = useRef(null);
@@ -19,6 +21,19 @@ export default function AppointmentForm() {
   const [width, height] = useWindowSize();
   const [showModal, setShowModal] = useState(false);
   const [showAppDownloadModal, setShowAppDownloadModal] = useState(false);
+
+  const [selectedDate, setSelectedDate] = useState(null);
+
+  const [selectedTime, setSelectedTime] = useState(null);
+
+  const handleTimeSelect = (time) => {
+    setSelectedTime(time);
+  };
+
+  const handleDateSelect = (date) => {
+    setSelectedDate(date);
+  };
+
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -380,15 +395,14 @@ export default function AppointmentForm() {
           placeholder="Enter Name"
           className="bg-transparent rounded-full h-[45px] shadow-xl p-2 mt-8 text-white font-semibold placeholder:text-white focus:outline-none "
         />
+
+        {/* Choose Date & Time  */}
         <CustomDropDown
           trigger={
             <div className="bg-transparent rounded-full h-[45px] shadow-xl p-2 text-start   text-white font-semibold">
               Choose Date & Time
             </div>
           }
-          // ${
-          //   width < 321 ? `w-[300px]` : `w-[358px]`
-          // }
           content={
             <>
               <div
@@ -397,115 +411,19 @@ export default function AppointmentForm() {
                 <h3 className=" mt-2 mb-4  text-[13px] font-bold  text-[#252525] ">
                   Date
                 </h3>
-                <div className="flex gap-x-4 pb-6 pt-1 noscrollbar  max-w-[360px]  overflow-y-scroll">
-                  <div className=" flex flex-col justify-center items-center text-black bg-white min-w-[86px] h-[53px] rounded-[20px]    ">
-                    <h3 className=" text-[13px]  ">12 Dec</h3>
-                    <p className=" text-[10px] text-[#895472] ">Mon</p>
-                  </div>
-                  {/* Active btn  */}
-                  <div className=" flex flex-col justify-center items-center text-white min-w-[86px] h-[53px] rounded-[20px] bg-gradient-to-r from-[#AD37E0] to-[#EE2B3B]  drop-shadow-lg shadow-lg  shadow-rose-400 ">
-                    <h3 className=" text-[13px] font-black ">13 Dec</h3>
-                    <p className=" text-[10px] font-black ">Tue</p>
-                  </div>
-                  <div className=" flex flex-col justify-center items-center text-black bg-white min-w-[86px] h-[53px] rounded-[20px]    ">
-                    <h3 className=" text-[13px]  ">12 Dec</h3>
-                    <p className=" text-[10px] text-[#895472] ">Mon</p>
-                  </div>
-                  <div className=" flex flex-col justify-center items-center text-black bg-white min-w-[86px] h-[53px] rounded-[20px]    ">
-                    <h3 className=" text-[13px]  ">12 Dec</h3>
-                    <p className=" text-[10px] text-[#895472] ">Mon</p>
-                  </div>
-                  <div className=" flex flex-col justify-center items-center text-black bg-white min-w-[86px] h-[53px] rounded-[20px]    ">
-                    <h3 className=" text-[13px]  ">12 Dec</h3>
-                    <p className=" text-[10px] text-[#895472] ">Mon</p>
-                  </div>
-                </div>
+
+                <DateSelector onSelectDate={handleDateSelect} />
+
                 <h3 className=" mt-2 mb-4  text-[13px] font-bold  text-[#252525] ">
                   Time
                 </h3>
-                {/* Morning */}
-                <div className="bg-[#fff] bottom-6 max-w-[368px] min-h-[271px] my-2 py-4 px-4 rounded-3xl  ">
-                  <h3 className=" mt-2 mb-2 mx-2  text-[13px] font-bold  text-[#895472] ">
-                    Morning
-                  </h3>
-                  <div className="flex flex-wrap gap-2 p-1">
-                    <div className=" flex flex-col justify-center items-center text-black bg-[#FCF2FD] w-[70px] h-[30px] rounded-[20px]    ">
-                      <h3 className=" text-[10px] text-[#CCA5CF] font-black ">
-                        09:00 am
-                      </h3>{" "}
-                    </div>
-                    <div className=" flex flex-col justify-center items-center text-black bg-[#FCF2FD] w-[70px] h-[30px] rounded-[20px]    ">
-                      <h3 className=" text-[10px] text-[#CCA5CF] font-black ">
-                        09:00 am
-                      </h3>
-                    </div>{" "}
-                    <div className=" flex flex-col justify-center items-center text-black bg-[#FCF2FD] w-[70px] h-[30px] rounded-[20px]    ">
-                      <h3 className=" text-[10px] text-[#CCA5CF] font-black ">
-                        09:00 am
-                      </h3>
-                    </div>{" "}
-                  </div>
-                  {/* Afternoon */}
-                  <>
-                    <h3 className=" mt-2 mb-2 mx-2  text-[13px] font-bold  text-[#895472] ">
-                      Afternoon
-                    </h3>
-                    <div className="flex flex-wrap gap-2 p-1">
-                      <div className=" flex flex-col justify-center items-center text-black bg-[#FCF2FD] w-[70px] h-[30px] rounded-[20px]    ">
-                        <h3 className=" text-[10px] text-[#CCA5CF] font-black ">
-                          09:00 am
-                        </h3>{" "}
-                      </div>
-                      <div className=" flex flex-col justify-center items-center text-black bg-[#FCF2FD] w-[70px] h-[30px] rounded-[20px]    ">
-                        <h3 className=" text-[10px] text-[#CCA5CF] font-black ">
-                          09:00 am
-                        </h3>
-                      </div>{" "}
-                      <div className=" flex flex-col justify-center items-center text-black bg-[#FCF2FD] w-[70px] h-[30px] rounded-[20px]    ">
-                        <h3 className=" text-[10px] text-[#CCA5CF] font-black ">
-                          09:00 am
-                        </h3>
-                      </div>{" "}
-                    </div>
-                  </>
-                  {/* Evening */}
-                  <>
-                    <h3 className=" mt-2 mb-2 mx-2  text-[13px] font-bold  text-[#895472] ">
-                      Evening
-                    </h3>
-                    <div className="flex flex-wrap gap-2 p-1">
-                      <div className=" flex flex-col justify-center items-center text-black bg-[#FCF2FD] w-[70px] h-[30px] rounded-[20px]    ">
-                        <h3 className=" text-[10px] text-[#CCA5CF] font-black ">
-                          09:00 am
-                        </h3>{" "}
-                      </div>
-                      <div className=" flex flex-col justify-center items-center text-black bg-[#FCF2FD] w-[70px] h-[30px] rounded-[20px]    ">
-                        <h3 className=" text-[10px] text-[#CCA5CF] font-black ">
-                          09:00 am
-                        </h3>
-                      </div>{" "}
-                      <div className=" flex flex-col justify-center items-center text-black bg-[#FCF2FD] w-[70px] h-[30px] rounded-[20px]    ">
-                        <h3 className=" text-[10px] text-[#CCA5CF] font-black ">
-                          09:00 am
-                        </h3>
-                      </div>{" "}
-                      <div className=" flex flex-col justify-center items-center text-black bg-[#FCF2FD] w-[70px] h-[30px] rounded-[20px]    ">
-                        <h3 className=" text-[10px] text-[#CCA5CF] font-black ">
-                          09:00 am
-                        </h3>
-                      </div>{" "}
-                      <div className=" flex flex-col justify-center items-center text-black bg-[#FCF2FD] w-[70px] h-[30px] rounded-[20px]    ">
-                        <h3 className=" text-[10px] text-[#CCA5CF] font-black ">
-                          09:00 am
-                        </h3>
-                      </div>
-                    </div>
-                  </>
-                </div>
+
+                <TimeSelector onSelectTime={handleTimeSelect} />
+
 
                 <div className="my-4 mx-1 px-4 py-4 bg-[#252525] rounded-full flex justify-between ">
                   <h2 className="text-[16px] font-[900]  bg-gradient-to-br from-[#AD37E0] to-[#EE2B3B] text-transparent bg-clip-text">
-                    13 Dec 2022, 02:00 pm
+                    {selectedDate} 2024, {selectedTime}
                   </h2>
                   <div className=" flex flex-col justify-center items-center text-white w-[66px] h-[24px] rounded-[20px] bg-gradient-to-r from-[#AD37E0] to-[#EE2B3B]  drop-shadow shadow-md  shadow-rose-400 ">
                     <h3 className=" text-[10px] font-black ">DONE</h3>
@@ -515,6 +433,7 @@ export default function AppointmentForm() {
             </>
           }
         />
+        {/* Choose Services  */}
         <CustomDropDown
           trigger={
             <div className="bg-transparent rounded-full h-[45px] shadow-xl p-2 text-start   text-white font-semibold  ">
@@ -549,7 +468,7 @@ export default function AppointmentForm() {
             </div>
           }
         />
-
+        {/* Choose Doctor  */}
         <CustomDropDown
           trigger={
             <div className="bg-transparent rounded-full h-[45px] shadow-xl p-2 text-start   text-white font-semibold  ">
@@ -707,6 +626,7 @@ export default function AppointmentForm() {
             </div>
           }
         />
+        {/* Choose consultation  */}
         <CustomDropDown
           trigger={
             <div className="bg-transparent rounded-full h-[45px] shadow-xl p-2 text-start   text-white font-semibold  ">
@@ -731,6 +651,7 @@ export default function AppointmentForm() {
           Book Now
         </button>
       </div>
+
       {/* Dialog Trigger */}
       {showModal && (
         <div className="fixed inset-0 flex items-center justify-center bg-gray-500 bg-opacity-75 z-60 min-w-[300px]">
@@ -744,11 +665,11 @@ export default function AppointmentForm() {
             }}
           >
             <div
-              className="h-[280px] relative mb-8"
+              className="h-[280px] relative -mt-[60px]"
               style={{ backgroundImage: "url('/pngwing.svg')" }}
             ></div>
             <div
-              className="h-[199px] w-[199px] absolute top-5 left-[20vw]"
+              className="h-[199px] w-[199px] absolute top-1 left-[20vw]"
               style={{
                 backgroundImage: "url('/giftbox.svg')",
                 backgroundPosition: "center",
