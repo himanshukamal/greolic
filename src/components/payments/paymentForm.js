@@ -35,7 +35,7 @@ export default function PaymentForm() {
           {/* payment box */}
         </div>
       </div>
-      <div className="mx-2 mt-4 flex gap-2 overflow-x-auto noscrollbar py-4 w-[100%] max-w-[425px]">
+      <div className=" mt-4 flex gap-2 overflow-x-auto noscrollbar mx-auto py-4 w-[100%] max-w-[425px]">
         <div className="text-center font-bold text-[14px] text-white w-[142px] h-[142px] min-w-[142px] rounded-[40px] bg-gradient-to-br from-[#AD37E0] to-[#EE2B3B] grid place-items-center shadow-lg shadow-rose-500 p-8">
           <LazyLoadImage
             src="/icons/moneywithdrawal.svg"
