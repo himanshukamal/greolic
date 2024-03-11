@@ -5,7 +5,7 @@ export default function ChooseDoctor() {
     <div>
       <div className="bg-[#FCF2FD] bottom-6 noscrollbar my-4 px-4 py-1 rounded-3xl  ">
         {/* (BDS, MDS)  */}
-        <div className="bg-white h-[77px] flex my-4 p-1  rounded-3xl ">
+        <div className="bg-white  flex my-4 p-1  rounded-3xl ">
           <div className="m-auto">
             <div className=" flex ">
               <h3 className="text-[16px] text-[#252525] font-semibold  my-1 ">
@@ -34,7 +34,7 @@ export default function ChooseDoctor() {
           </div>
         </div>
         {/* (BDS, MDS)  */}
-        <div className="bg-white h-[77px] flex my-4 p-1  rounded-3xl ">
+        <div className="bg-white flex my-4 p-1  rounded-3xl ">
           <div className="m-auto">
             <div className=" flex ">
               <h3 className="text-[16px] text-[#252525] font-semibold  my-1 ">
@@ -63,7 +63,7 @@ export default function ChooseDoctor() {
           </div>
         </div>
         {/* (BDS, MDS)  */}
-        <div className="bg-white h-[77px] flex my-4 p-1  rounded-3xl ">
+        <div className="bg-white flex my-4 p-1  rounded-3xl ">
           <div className="m-auto">
             <div className=" flex ">
               <h3 className="text-[16px] text-[#252525] font-semibold  my-1 ">
@@ -92,7 +92,7 @@ export default function ChooseDoctor() {
           </div>
         </div>
         {/* (BDS, MDS)  */}
-        <div className="bg-white h-[77px] flex my-4 p-1  rounded-3xl ">
+        <div className="bg-white flex my-4 p-1  rounded-3xl ">
           <div className="m-auto">
             <div className=" flex ">
               <h3 className="text-[16px] text-[#252525] font-semibold  my-1 ">
@@ -120,7 +120,7 @@ export default function ChooseDoctor() {
             <div className="bg-gradient-to-br from-[#AD37E0] to-[#EE2B3B] h-[8px] w-[8px] rounded-full m-auto mt-1 shadow-2xl "></div>
           </div>
         </div>
-        <div className="bg-white h-[77px] flex my-4 p-1  rounded-3xl ">
+        <div className="bg-white  flex my-4 p-1  rounded-3xl ">
           <div className="m-auto">
             <div className=" flex ">
               <h3 className="text-[16px] text-[#252525] font-semibold  my-1 ">
@@ -133,7 +133,7 @@ export default function ChooseDoctor() {
 
             <p className=" text-[10px] ">K.T Nagar</p>
 
-            <div className=" flex ">
+            <div className="flex">
               <h4 className="text-[12px] text-[#AD37E0] font-semibold  my-1 ">
                 Availability :
               </h4>

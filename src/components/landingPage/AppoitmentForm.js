@@ -15,6 +15,8 @@ import TimeSelector from "../time-selector";
 import ChooseServices from "./inputOptions/chooseServices";
 import ChooseConsultation from "./inputOptions/chooseConsultation";
 import ChooseDoctor from "./inputOptions/chooseDoctor";
+import AnimatedCarousel from "../animatedCarousel";
+import Navbar from "../navbar";
 
 export default function AppointmentForm() {
   const logoMenuRef = useRef(null);
@@ -81,25 +83,23 @@ export default function AppointmentForm() {
   }, []);
   return (
     <div className="pb-8 overflow-hidden bg-gradient-to-br from-[#CC3190] to-[#EE2B3B] rounded-bl-[45px] relative top-[30px]">
-      <div
+      {/* <div
         className="absolute z-[51] w-[222px] h-[600px] rotate-[32deg] left-[25vw] top-[-52px]  bg-gradient-to-t opacity-10 from-transparent to-white"
         // style={{ backgroundColor: "rgba(255, 255, 255, 0.1)" }}
-      ></div>
-      <div
+      ></div> */}
+      {/* <div
         className="absolute  z-[51] w-[222px] h-[600px] rotate-[32deg] left-[-47vw] top-[-164px]  bg-gradient-to-t from-transparent opacity-10 to-white"
         // style={{ backgroundColor: "rgba(255, 255, 255, 0.1)" }}
-      ></div>
+      ></div> */}
       {/* form */}
-
+      <Navbar />
       {/* logo and menu */}
-      <div className="z-[51] fixed top-[30px] max-w-[425px] mx-auto left-0 right-0 z-49 bg-gradient-to-br from-[#E0379E] to-[#EE2B3B] p-[0.8rem] flex justify-between">
+      {/* <div className="z-[51] fixed top-[30px] max-w-[425px] mx-auto left-0 right-0 z-49 bg-gradient-to-br from-[#E0379E] to-[#EE2B3B] p-[0.8rem] flex justify-between">
         <LazyLoadImage
           src="/doclogo.svg"
           alt="My Image"
-          //   className="w-[10px] h-[10px]"
-          // effect="blur" // Optional, for blur-up effect
+          
         />
-        {/* droopdown and sidebar */}
         <div className="flex">
           <Select
             className="text-[13px] font-bold text-white bg-transparent border-none appearance-none pr-2"
@@ -131,15 +131,12 @@ export default function AppointmentForm() {
             <MenuItem value="delhi">Delhi</MenuItem>
             <MenuItem value="mumbai">Mumbai</MenuItem>
             <MenuItem value="bangalore">Bangalore</MenuItem>
-            {/* Add more cities here */}
           </Select>
-          {/* <LazyLoadImage src="/sidemenu.svg" className="" /> */}
           <button onClick={toggleDrawer}>
             <LazyLoadImage src="/sidemenu.svg" />
           </button>
           <Drawer anchor="right" open={isDrawerOpen} onClose={toggleDrawer}>
             <div className="p-4 w-[80vw] bg-[#FCF2FC] h-dvh">
-              {/* Add your drawer content here */}
               <div className="flex justify-between">
                 <LazyLoadImage src="/sidebarLogo.svg" alt="logo" />
                 <button onClick={toggleDrawer}>
@@ -196,7 +193,6 @@ export default function AppointmentForm() {
                   <p className="text-gray-600 text-[12px]">User ID</p>
                 </div>
 
-                {/* links */}
               </div>
               <div className="rounded-full bg-white flex h-[48px] items-center px-4 mt-4">
                 <LazyLoadImage
@@ -307,7 +303,6 @@ export default function AppointmentForm() {
                       className="w-[14px] h-[14px] mr-[6px] mb-[6px]"
                     />
                   </div>
-                  {/* bg-gradient-to-tr from-[#F0CBE0] to-[#F0CBE0]  */}
                   <div
                     className="absolute top-[0.6em] right-[1.7em] rounded-full rotate-[45deg] w-[18px] h-[21px] "
                     style={{
@@ -321,12 +316,13 @@ export default function AppointmentForm() {
             </div>
           </Drawer>
         </div>
-      </div>
+      </div> */}
+
       {/* end logo menu */}
 
       {/* city and clinic div */}
 
-      <div className="w-[196px] h-[50px] rounded-full bg-[#F3EDF4] text-center mx-auto flex items-center justify-evenly mt-[86px]">
+      {/* <div className="w-[196px] h-[50px] rounded-full bg-[#F3EDF4] text-center mx-auto flex items-center justify-evenly mt-[86px]">
         <div className="rounded-full w-[30px] h-[30px] bg-[#F3EDF4] drop-shadow-xl grid place-items-center">
           <LazyLoadImage src="/HospitalLocation.svg" alt="Hospital Location" />
         </div>
@@ -349,9 +345,9 @@ export default function AppointmentForm() {
             Clinics
           </p>
         </div>
-      </div>
-
-      <p className="mx-auto text-[28px] text-white text-center font-black uppercase">
+      </div> */}
+      <AnimatedCarousel />
+      <p className="mx-auto text-[28px] text-white text-center font-black uppercase mt-4">
         Achieve Your Best
       </p>
       <div className="relative">

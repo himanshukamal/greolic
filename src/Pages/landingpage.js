@@ -6,6 +6,7 @@ import Basefooter from "../components/landingPage/basefooter";
 import Services from "../components/landingPage/services";
 import Specialist from "../components/landingPage/specialist";
 import Testimonial from "../components/landingPage/testimonial";
+import Navbar from "../components/navbar";
 
 export default function Landingpage() {
   return (
