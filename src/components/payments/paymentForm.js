@@ -23,7 +23,7 @@ export default function PaymentForm() {
         <LazyLoadImage
           src="/creditcard.svg"
           alt="creditcard"
-          className={`left-0 mx-auto right-0 shadow-lg rounded-[40px]`}
+          className={`left-0 top-3 mt-4 mx-auto shadow-lg rounded-[40px]`}
         />
         <div className=" mx-auto mt-4">
           <p className="text-[20px] text-[#252525] font-bold ml-2  leading-[18px] mx-4 pl-2">

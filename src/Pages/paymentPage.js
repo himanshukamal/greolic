@@ -3,6 +3,7 @@ import InvoiceNavbar from "../components/invoice/invoiceNavbar";
 import TopAdvertisement from "../components/TopAdvertisement";
 import PaymentForm from "../components/payments/paymentForm";
 import Basefooter from "../components/landingPage/basefooter";
+import ConfirmBooking from "../components/payments/confirm-booking";
 
 export default function PaymentPage() {
   return (
@@ -10,7 +11,7 @@ export default function PaymentPage() {
       <TopAdvertisement />
       <InvoiceNavbar />
       <PaymentForm />
-      <Basefooter />
+      <Basefooter customBtn={<ConfirmBooking />} />
     </div>
   );
 }

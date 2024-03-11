@@ -2,8 +2,10 @@ import React from "react";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import "@fontsource/montserrat";
 import "@fontsource/montserrat/800.css";
+import { Link } from "react-router-dom";
 
-export default function Basefooter() {
+
+export default function Basefooter({ btnName , link, customBtn }) {
   return (
     <div className="relative">
       <div className="h-[194px] bg-[#FCE7F3] ">
@@ -54,7 +56,7 @@ export default function Basefooter() {
         </p>
       </div>
       {/* fixed footer */}
-      <div className=" fixed bottom-0 max-w-[425px] mx-auto left-0 right-0 z-49 bg-gradient-to-br from-[#E0379E] to-[#EE2B3B] p-[0.8rem] flex justify-between items-center">
+      <div className=" fixed bottom-0 max-w-[425px] mx-auto left-0 right-0 z-49 bg-gradient-to-br from-[#E0379E] to-[#EE2B3B] p-[0.8rem] flex justify-around items-center">
         <div className="flex flex-col justify-center">
           <LazyLoadImage
             src="/homeicon.svg"
@@ -82,16 +84,23 @@ export default function Basefooter() {
           />
           <p className="text-white text-[10px] font-bold">Doctors</p>
         </div>
-        <button className="h-[50px] flex items-center justify-center bg-white rounded-full shadow-lg">
-          <span
-            className="text-[16px] px-4 font-bold bg-gradient-to-r from-pink-500 to-red-500 text-transparent bg-clip-text uppercase"
-            style={{
-              backgroundImage: "linear-gradient(to right, #FF6CBE, #FF6666)",
-            }}
-          >
-            Proceed
-          </span>
-        </button>
+        {link && (
+          <Link to={link}>
+            <button className="h-[50px] flex items-center justify-center bg-white rounded-full shadow-lg">
+              <span
+                className="text-[16px] px-4 font-bold bg-gradient-to-r from-pink-500 to-red-500 text-transparent bg-clip-text uppercase"
+                style={{
+                  backgroundImage:
+                    "linear-gradient(to right, #FF6CBE, #FF6666)",
+                }}
+              >
+                {btnName ?? "Proceed"}
+              </span>
+            </button>
+          </Link>
+        )}
+
+        {customBtn && customBtn}
       </div>
     </div>
   );

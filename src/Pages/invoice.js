@@ -17,7 +17,7 @@ export default function Invoice() {
       <InvoiceBill />
       <DoctorInfoCard />
       <Testimonial />
-      <Basefooter />
+      <Basefooter link="/payment" />
     </div>
   );
 }

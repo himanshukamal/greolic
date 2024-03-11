@@ -7,10 +7,17 @@ import "@fontsource/montserrat/800.css";
 import "@fontsource/montserrat/600.css";
 import { useWindowSize } from "@react-hook/window-size";
 import CustomDropDown from "../custom-dropdown";
-import { Dialog, DialogOverlay } from "@radix-ui/react-dialog";
-import { DialogTrigger, DialogContent } from "@radix-ui/react-dialog";
-import { Modal, Button } from "@mui/material";
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+// import { Dialog, DialogOverlay } from "@radix-ui/react-dialog";
+// import { DialogTrigger, DialogContent } from "@radix-ui/react-dialog";
+// import { Modal, Button } from "@mui/material";
+import DateSelector from "../date-selector";
+import TimeSelector from "../time-selector";
+import ChooseServices from "./inputOptions/chooseServices";
+import ChooseConsultation from "./inputOptions/chooseConsultation";
+import ChooseDoctor from "./inputOptions/chooseDoctor";
+import AnimatedCarousel from "../animatedCarousel";
+import Navbar from "../navbar";
+import { Link } from "react-router-dom";
 
 export default function AppointmentForm() {
   const logoMenuRef = useRef(null);
@@ -21,10 +28,22 @@ export default function AppointmentForm() {
   const [showModal, setShowModal] = useState(false);
   const [showAppDownloadModal, setShowAppDownloadModal] = useState(false);
 
+  const [selectedDate, setSelectedDate] = useState(null);
+
+  const [selectedTime, setSelectedTime] = useState(null);
+
+  const handleTimeSelect = (time) => {
+    setSelectedTime(time);
+  };
+
+  const handleDateSelect = (date) => {
+    setSelectedDate(date);
+  };
+
   useEffect(() => {
     const timer = setTimeout(() => {
       setShowModal(true);
-    }, 3000);
+    }, 1000);
 
     return () => clearTimeout(timer);
   }, []);
@@ -65,25 +84,23 @@ export default function AppointmentForm() {
   }, []);
   return (
     <div className="pb-8 overflow-hidden bg-gradient-to-br from-[#CC3190] to-[#EE2B3B] rounded-bl-[45px] relative top-[30px]">
-      <div
+      {/* <div
         className="absolute z-[51] w-[222px] h-[600px] rotate-[32deg] left-[25vw] top-[-52px]  bg-gradient-to-t opacity-10 from-transparent to-white"
         // style={{ backgroundColor: "rgba(255, 255, 255, 0.1)" }}
-      ></div>
-      <div
+      ></div> */}
+      {/* <div
         className="absolute  z-[51] w-[222px] h-[600px] rotate-[32deg] left-[-47vw] top-[-164px]  bg-gradient-to-t from-transparent opacity-10 to-white"
         // style={{ backgroundColor: "rgba(255, 255, 255, 0.1)" }}
-      ></div>
+      ></div> */}
       {/* form */}
-
+      <Navbar />
       {/* logo and menu */}
-      <div className="z-[51] fixed top-[30px] max-w-[425px] mx-auto left-0 right-0 z-49 bg-gradient-to-br from-[#E0379E] to-[#EE2B3B] p-[0.8rem] flex justify-between">
+      {/* <div className="z-[51] fixed top-[30px] max-w-[425px] mx-auto left-0 right-0 z-49 bg-gradient-to-br from-[#E0379E] to-[#EE2B3B] p-[0.8rem] flex justify-between">
         <LazyLoadImage
           src="/doclogo.svg"
           alt="My Image"
-          //   className="w-[10px] h-[10px]"
-          // effect="blur" // Optional, for blur-up effect
+          
         />
-        {/* droopdown and sidebar */}
         <div className="flex">
           <Select
             className="text-[13px] font-bold text-white bg-transparent border-none appearance-none pr-2"
@@ -115,15 +132,12 @@ export default function AppointmentForm() {
             <MenuItem value="delhi">Delhi</MenuItem>
             <MenuItem value="mumbai">Mumbai</MenuItem>
             <MenuItem value="bangalore">Bangalore</MenuItem>
-            {/* Add more cities here */}
           </Select>
-          {/* <LazyLoadImage src="/sidemenu.svg" className="" /> */}
           <button onClick={toggleDrawer}>
             <LazyLoadImage src="/sidemenu.svg" />
           </button>
           <Drawer anchor="right" open={isDrawerOpen} onClose={toggleDrawer}>
             <div className="p-4 w-[80vw] bg-[#FCF2FC] h-dvh">
-              {/* Add your drawer content here */}
               <div className="flex justify-between">
                 <LazyLoadImage src="/sidebarLogo.svg" alt="logo" />
                 <button onClick={toggleDrawer}>
@@ -180,7 +194,6 @@ export default function AppointmentForm() {
                   <p className="text-gray-600 text-[12px]">User ID</p>
                 </div>
 
-                {/* links */}
               </div>
               <div className="rounded-full bg-white flex h-[48px] items-center px-4 mt-4">
                 <LazyLoadImage
@@ -291,7 +304,6 @@ export default function AppointmentForm() {
                       className="w-[14px] h-[14px] mr-[6px] mb-[6px]"
                     />
                   </div>
-                  {/* bg-gradient-to-tr from-[#F0CBE0] to-[#F0CBE0]  */}
                   <div
                     className="absolute top-[0.6em] right-[1.7em] rounded-full rotate-[45deg] w-[18px] h-[21px] "
                     style={{
@@ -305,12 +317,13 @@ export default function AppointmentForm() {
             </div>
           </Drawer>
         </div>
-      </div>
+      </div> */}
+
       {/* end logo menu */}
 
       {/* city and clinic div */}
 
-      <div className="w-[196px] h-[50px] rounded-full bg-[#F3EDF4] text-center mx-auto flex items-center justify-evenly mt-[86px]">
+      {/* <div className="w-[196px] h-[50px] rounded-full bg-[#F3EDF4] text-center mx-auto flex items-center justify-evenly mt-[86px]">
         <div className="rounded-full w-[30px] h-[30px] bg-[#F3EDF4] drop-shadow-xl grid place-items-center">
           <LazyLoadImage src="/HospitalLocation.svg" alt="Hospital Location" />
         </div>
@@ -333,9 +346,9 @@ export default function AppointmentForm() {
             Clinics
           </p>
         </div>
-      </div>
-
-      <p className="mx-auto text-[28px] text-white text-center font-black uppercase">
+      </div> */}
+      <AnimatedCarousel />
+      <p className="mx-auto text-[28px] text-white text-center font-black uppercase mt-4">
         Achieve Your Best
       </p>
       <div className="relative">
@@ -379,12 +392,12 @@ export default function AppointmentForm() {
       <div className="mx-4 flex flex-col space-y-4">
         <input
           placeholder="Enter Name"
-          className="backdrop-blur bg-white bg-opacity-10 rounded-full h-[45px] shadow-xl p-2 mt-8 text-white font-semibold placeholder-white  focus:outline-none"
+          className="backdrop-blur bg-white bg-opacity-10  rounded-full h-[45px] shadow-xl p-2 mt-8 text-white font-semibold placeholder:text-white focus:outline-none "
         />
 
         <CustomDropDown
           trigger={
-            <div className="backdrop-blur bg-white bg-opacity-10 rounded-full h-[45px] shadow-xl p-2 text-start   text-white font-semibold placeholder-white placeholder-opacity-50">
+            <div className="backdrop-blur bg-white bg-opacity-10 rounded-full h-[45px] shadow-xl p-2 text-start   text-white font-semibold">
               Choose Date & Time
             </div>
           }
@@ -399,115 +412,16 @@ export default function AppointmentForm() {
                 <h3 className=" mt-2 mb-4  text-[13px] font-bold  text-[#252525] ">
                   Date
                 </h3>
-                <div className="flex gap-x-4 pb-6 pt-1 noscrollbar  max-w-[360px]  overflow-y-scroll">
-                  <div className=" flex flex-col justify-center items-center text-black bg-white min-w-[86px] h-[53px] rounded-[20px]    ">
-                    <h3 className=" text-[13px]  ">12 Dec</h3>
-                    <p className=" text-[10px] text-[#895472] ">Mon</p>
-                  </div>
-                  {/* Active btn  */}
-                  <div className=" flex flex-col justify-center items-center text-white min-w-[86px] h-[53px] rounded-[20px] bg-gradient-to-r from-[#AD37E0] to-[#EE2B3B]  drop-shadow-lg shadow-lg  shadow-rose-400 ">
-                    <h3 className=" text-[13px] font-black ">13 Dec</h3>
-                    <p className=" text-[10px] font-black ">Tue</p>
-                  </div>
-                  <div className=" flex flex-col justify-center items-center text-black bg-white min-w-[86px] h-[53px] rounded-[20px]    ">
-                    <h3 className=" text-[13px]  ">12 Dec</h3>
-                    <p className=" text-[10px] text-[#895472] ">Mon</p>
-                  </div>
-                  <div className=" flex flex-col justify-center items-center text-black bg-white min-w-[86px] h-[53px] rounded-[20px]    ">
-                    <h3 className=" text-[13px]  ">12 Dec</h3>
-                    <p className=" text-[10px] text-[#895472] ">Mon</p>
-                  </div>
-                  <div className=" flex flex-col justify-center items-center text-black bg-white min-w-[86px] h-[53px] rounded-[20px]    ">
-                    <h3 className=" text-[13px]  ">12 Dec</h3>
-                    <p className=" text-[10px] text-[#895472] ">Mon</p>
-                  </div>
-                </div>
+               <DateSelector onSelectDate={handleDateSelect}  />
                 <h3 className=" mt-2 mb-4  text-[13px] font-bold  text-[#252525] ">
                   Time
                 </h3>
-                {/* Morning */}
-                <div className="bg-[#fff] bottom-6 max-w-[368px] min-h-[271px] my-2 py-4 px-4 rounded-3xl  ">
-                  <h3 className=" mt-2 mb-2 mx-2  text-[13px] font-bold  text-[#895472] ">
-                    Morning
-                  </h3>
-                  <div className="flex flex-wrap gap-2 p-1">
-                    <div className=" flex flex-col justify-center items-center text-black bg-[#FCF2FD] w-[70px] h-[30px] rounded-[20px]    ">
-                      <h3 className=" text-[10px] text-[#CCA5CF] font-black ">
-                        09:00 am
-                      </h3>{" "}
-                    </div>
-                    <div className=" flex flex-col justify-center items-center text-black bg-[#FCF2FD] w-[70px] h-[30px] rounded-[20px]    ">
-                      <h3 className=" text-[10px] text-[#CCA5CF] font-black ">
-                        09:00 am
-                      </h3>
-                    </div>{" "}
-                    <div className=" flex flex-col justify-center items-center text-black bg-[#FCF2FD] w-[70px] h-[30px] rounded-[20px]    ">
-                      <h3 className=" text-[10px] text-[#CCA5CF] font-black ">
-                        09:00 am
-                      </h3>
-                    </div>{" "}
-                  </div>
-                  {/* Afternoon */}
-                  <>
-                    <h3 className=" mt-2 mb-2 mx-2  text-[13px] font-bold  text-[#895472] ">
-                      Afternoon
-                    </h3>
-                    <div className="flex flex-wrap gap-2 p-1">
-                      <div className=" flex flex-col justify-center items-center text-black bg-[#FCF2FD] w-[70px] h-[30px] rounded-[20px]    ">
-                        <h3 className=" text-[10px] text-[#CCA5CF] font-black ">
-                          09:00 am
-                        </h3>{" "}
-                      </div>
-                      <div className=" flex flex-col justify-center items-center text-black bg-[#FCF2FD] w-[70px] h-[30px] rounded-[20px]    ">
-                        <h3 className=" text-[10px] text-[#CCA5CF] font-black ">
-                          09:00 am
-                        </h3>
-                      </div>{" "}
-                      <div className=" flex flex-col justify-center items-center text-black bg-[#FCF2FD] w-[70px] h-[30px] rounded-[20px]    ">
-                        <h3 className=" text-[10px] text-[#CCA5CF] font-black ">
-                          09:00 am
-                        </h3>
-                      </div>{" "}
-                    </div>
-                  </>
-                  {/* Evening */}
-                  <>
-                    <h3 className=" mt-2 mb-2 mx-2  text-[13px] font-bold  text-[#895472] ">
-                      Evening
-                    </h3>
-                    <div className="flex flex-wrap gap-2 p-1">
-                      <div className=" flex flex-col justify-center items-center text-black bg-[#FCF2FD] w-[70px] h-[30px] rounded-[20px]    ">
-                        <h3 className=" text-[10px] text-[#CCA5CF] font-black ">
-                          09:00 am
-                        </h3>{" "}
-                      </div>
-                      <div className=" flex flex-col justify-center items-center text-black bg-[#FCF2FD] w-[70px] h-[30px] rounded-[20px]    ">
-                        <h3 className=" text-[10px] text-[#CCA5CF] font-black ">
-                          09:00 am
-                        </h3>
-                      </div>{" "}
-                      <div className=" flex flex-col justify-center items-center text-black bg-[#FCF2FD] w-[70px] h-[30px] rounded-[20px]    ">
-                        <h3 className=" text-[10px] text-[#CCA5CF] font-black ">
-                          09:00 am
-                        </h3>
-                      </div>{" "}
-                      <div className=" flex flex-col justify-center items-center text-black bg-[#FCF2FD] w-[70px] h-[30px] rounded-[20px]    ">
-                        <h3 className=" text-[10px] text-[#CCA5CF] font-black ">
-                          09:00 am
-                        </h3>
-                      </div>{" "}
-                      <div className=" flex flex-col justify-center items-center text-black bg-[#FCF2FD] w-[70px] h-[30px] rounded-[20px]    ">
-                        <h3 className=" text-[10px] text-[#CCA5CF] font-black ">
-                          09:00 am
-                        </h3>
-                      </div>
-                    </div>
-                  </>
-                </div>
+
+                <TimeSelector onSelectTime={handleTimeSelect} />
 
                 <div className="my-4 mx-1 px-4 py-4 bg-[#252525] rounded-full flex justify-between ">
                   <h2 className="text-[16px] font-[900]  bg-gradient-to-br from-[#AD37E0] to-[#EE2B3B] text-transparent bg-clip-text">
-                    13 Dec 2022, 02:00 pm
+                    {selectedDate ?? '13 Dec 2022,'} {selectedTime ?? '02:00 pm'}
                   </h2>
                   <div className=" flex flex-col justify-center items-center text-white w-[66px] h-[24px] rounded-[20px] bg-gradient-to-r from-[#AD37E0] to-[#EE2B3B]  drop-shadow shadow-md  shadow-rose-400 ">
                     <h3 className=" text-[10px] font-black ">DONE</h3>
@@ -519,225 +433,217 @@ export default function AppointmentForm() {
         />
         <CustomDropDown
           trigger={
-            <div className="placeholder-white placeholder-opacity-50 backdrop-blur bg-white bg-opacity-10 rounded-full h-[45px] shadow-xl p-2 text-start   text-white font-semibold  ">
+            <div className="backdrop-blur bg-white bg-opacity-10 rounded-full h-[45px] shadow-xl p-2 text-start   text-white font-semibold  ">
               Choose Services
             </div>
           }
           content={
-            <div className="bg-[#FCF2FD] bottom-6 min-w-96 max-h-[268px] overflow-y-scroll my-4 p-4 rounded-3xl">
-              <h3 className="text-[16px] text-[#AD648D] font-semibold border-b border-[#F5D3E7] my-1 p-1 pb-2 ">
-                Dental Braces
-              </h3>
-              <h3 className="text-[16px] text-[#AD648D] font-semibold border-b border-[#F5D3E7] my-1 p-1 pb-2 ">
-                Dental Crown
-              </h3>
-              <div className=" flex justify-between item-center align-middle border-b border-[#F5D3E7] pb-2">
-                <h3 className="text-[20px]  bg-gradient-to-br from-[#AD37E0] to-[#EE2B3B] text-transparent bg-clip-text font-extrabold  my-1 p-1  ">
-                  Tooth Extraction
-                </h3>
-                <div className=" flex flex-col justify-center my-auto py-2 items-center text-white w-[66px] h-[24px] rounded-[20px] bg-gradient-to-r from-[#AD37E0] to-[#EE2B3B]  drop-shadow shadow-md  shadow-rose-400 ">
-                  <h3 className=" text-[10px] font-black my-auto  ">Rs.300</h3>
-                </div>
-              </div>
-              <h3 className="text-[16px] text-[#AD648D] font-semibold border-b border-[#F5D3E7] my-1 p-1 pb-2 ">
-                Root Canal
-              </h3>
-              <h3 className="text-[16px] text-[#AD648D] font-semibold border-b border-[#F5D3E7] my-1 p-1 pb-2 ">
-                Whitening
-              </h3>
-              <h3 className="text-[16px] text-[#AD648D] font-semibold border-b border-[#F5D3E7] my-1 p-1 pb-2 ">
-                Tooth Straightening
-              </h3>
-            </div>
+            // <div className="bg-[#FCF2FD] bottom-6  max-h-[268px] overflow-y-scroll my-4 p-4 rounded-3xl">
+            //   <h3 className="text-[16px] text-[#AD648D] font-semibold border-b border-[#F5D3E7] my-1 p-1 pb-2 ">
+            //     Dental Braces
+            //   </h3>
+            //   <h3 className="text-[16px] text-[#AD648D] font-semibold border-b border-[#F5D3E7] my-1 p-1 pb-2 ">
+            //     Dental Crown
+            //   </h3>
+            //   <div className=" flex justify-between item-center align-middle border-b border-[#F5D3E7] pb-2">
+            //     <h3 className="text-[20px]  bg-gradient-to-br from-[#AD37E0] to-[#EE2B3B] text-transparent bg-clip-text font-extrabold  my-1 p-1  ">
+            //       Tooth Extraction
+            //     </h3>
+            //     <div className=" flex flex-col justify-center my-auto py-2 items-center text-white w-[66px] h-[24px] rounded-[20px] bg-gradient-to-r from-[#AD37E0] to-[#EE2B3B]  drop-shadow shadow-md  shadow-rose-400 ">
+            //       <h3 className=" text-[10px] font-black my-auto  ">Rs.300</h3>
+            //     </div>
+            //   </div>
+            //   <h3 className="text-[16px] text-[#AD648D] font-semibold border-b border-[#F5D3E7] my-1 p-1 pb-2 ">
+            //     Root Canal
+            //   </h3>
+            //   <h3 className="text-[16px] text-[#AD648D] font-semibold border-b border-[#F5D3E7] my-1 p-1 pb-2 ">
+            //     Whitening
+            //   </h3>
+            //   <h3 className="text-[16px] text-[#AD648D] font-semibold border-b border-[#F5D3E7] my-1 p-1 pb-2 ">
+            //     Tooth Straightening
+            //   </h3>
+            // </div>
+            <ChooseServices />
           }
         />
 
         <CustomDropDown
           trigger={
-            <div className="placeholder-white placeholder-opacity-50 backdrop-blur bg-white bg-opacity-10 rounded-full h-[45px] shadow-xl p-2 text-start   text-white font-semibold  ">
+            <div className="backdrop-blur bg-white bg-opacity-10 rounded-full h-[45px] shadow-xl p-2 text-start   text-white font-semibold  ">
               Choose Doctor
             </div>
           }
           content={
             // Main Container
-            <div className="bg-[#FCF2FD] bottom-6 min-w-96 max-h-[389px] overflow-y-scroll my-4 px-4 py-1 rounded-3xl  ">
-              {/* (BDS, MDS)  */}
-              <div className="bg-white h-[77px] flex my-4 p-1  rounded-3xl ">
-                <div className="m-auto">
-                  <div className=" flex ">
-                    <h3 className="text-[16px] text-[#252525] font-semibold  my-1 ">
-                      Dr. David Russ
-                    </h3>
-                    <p className=" text-[#CA3BA1] text-[8px] font-semibold my-auto  mx-2">
-                      (BDS, MDS)
-                    </p>
-                  </div>
+            // <div className="bg-[#FCF2FD] bottom-6 max-h-[389px] noscrollbar my-4 px-4 py-1 rounded-3xl  ">
+            //   {/* (BDS, MDS)  */}
+            //   <div className="bg-white h-[77px] flex my-4 p-1  rounded-3xl ">
+            //     <div className="m-auto">
+            //       <div className=" flex ">
+            //         <h3 className="text-[16px] text-[#252525] font-semibold  my-1 ">
+            //           Dr. David Russ
+            //         </h3>
+            //         <p className=" text-[#CA3BA1] text-[8px] font-semibold my-auto  mx-2">
+            //           (BDS, MDS)
+            //         </p>
+            //       </div>
 
-                  <p className=" text-[10px] ">K.T Nagar</p>
+            //       <p className=" text-[10px] ">K.T Nagar</p>
 
-                  <div className=" flex ">
-                    <h4 className="text-[12px] text-[#AD37E0] font-semibold  my-1 ">
-                      Availability :
-                    </h4>
-                    <p className=" text-[#252525] text-[8px] font-semibold my-auto  mx-2">
-                      10:00 AM - 01:00 PM, 04:00 PM - 09:00 PM
-                    </p>
-                  </div>
-                </div>
+            //       <div className=" flex ">
+            //         <h4 className="text-[12px] text-[#AD37E0] font-semibold  my-1 ">
+            //           Availability :
+            //         </h4>
+            //         <p className=" text-[#252525] text-[8px] font-semibold my-auto  mx-2">
+            //           10:00 AM - 01:00 PM, 04:00 PM - 09:00 PM
+            //         </p>
+            //       </div>
+            //     </div>
 
-                <div className=" h-[15px] w-[15px]  rounded-full m-auto mr-1 bg-[#F3EDF4]  shadow-2xl ">
-                  {" "}
-                  <div className="bg-gradient-to-br from-[#AD37E0] to-[#EE2B3B] h-[8px] w-[8px] rounded-full m-auto mt-1 shadow-2xl "></div>
-                </div>
-              </div>
-              {/* (BDS, MDS)  */}
-              <div className="bg-white h-[77px] flex my-4 p-1  rounded-3xl ">
-                <div className="m-auto">
-                  <div className=" flex ">
-                    <h3 className="text-[16px] text-[#252525] font-semibold  my-1 ">
-                      Dr. David Russ
-                    </h3>
-                    <p className=" text-[#CA3BA1] text-[8px] font-semibold my-auto  mx-2">
-                      (BDS, MDS)
-                    </p>
-                  </div>
+            //     <div className=" h-[15px] w-[15px]  rounded-full m-auto mr-1 bg-[#F3EDF4]  shadow-2xl ">
+            //       {" "}
+            //       <div className="bg-gradient-to-br from-[#AD37E0] to-[#EE2B3B] h-[8px] w-[8px] rounded-full m-auto mt-1 shadow-2xl "></div>
+            //     </div>
+            //   </div>
+            //   {/* (BDS, MDS)  */}
+            //   <div className="bg-white h-[77px] flex my-4 p-1  rounded-3xl ">
+            //     <div className="m-auto">
+            //       <div className=" flex ">
+            //         <h3 className="text-[16px] text-[#252525] font-semibold  my-1 ">
+            //           Dr. David Russ
+            //         </h3>
+            //         <p className=" text-[#CA3BA1] text-[8px] font-semibold my-auto  mx-2">
+            //           (BDS, MDS)
+            //         </p>
+            //       </div>
 
-                  <p className=" text-[10px] ">K.T Nagar</p>
+            //       <p className=" text-[10px] ">K.T Nagar</p>
 
-                  <div className=" flex ">
-                    <h4 className="text-[12px] text-[#AD37E0] font-semibold  my-1 ">
-                      Availability :
-                    </h4>
-                    <p className=" text-[#252525] text-[8px] font-semibold my-auto  mx-2">
-                      10:00 AM - 01:00 PM, 04:00 PM - 09:00 PM
-                    </p>
-                  </div>
-                </div>
+            //       <div className=" flex ">
+            //         <h4 className="text-[12px] text-[#AD37E0] font-semibold  my-1 ">
+            //           Availability :
+            //         </h4>
+            //         <p className=" text-[#252525] text-[8px] font-semibold my-auto  mx-2">
+            //           10:00 AM - 01:00 PM, 04:00 PM - 09:00 PM
+            //         </p>
+            //       </div>
+            //     </div>
 
-                <div className=" h-[15px] w-[15px]  rounded-full m-auto mr-1 bg-[#F3EDF4]  shadow-2xl ">
-                  {" "}
-                  <div className="bg-gradient-to-br from-[#AD37E0] to-[#EE2B3B] h-[8px] w-[8px] rounded-full m-auto mt-1 shadow-2xl "></div>
-                </div>
-              </div>
-              {/* (BDS, MDS)  */}
-              <div className="bg-white h-[77px] flex my-4 p-1  rounded-3xl ">
-                <div className="m-auto">
-                  <div className=" flex ">
-                    <h3 className="text-[16px] text-[#252525] font-semibold  my-1 ">
-                      Dr. David Russ
-                    </h3>
-                    <p className=" text-[#CA3BA1] text-[8px] font-semibold my-auto  mx-2">
-                      (BDS, MDS)
-                    </p>
-                  </div>
+            //     <div className=" h-[15px] w-[15px]  rounded-full m-auto mr-1 bg-[#F3EDF4]  shadow-2xl ">
+            //       {" "}
+            //       <div className="bg-gradient-to-br from-[#AD37E0] to-[#EE2B3B] h-[8px] w-[8px] rounded-full m-auto mt-1 shadow-2xl "></div>
+            //     </div>
+            //   </div>
+            //   {/* (BDS, MDS)  */}
+            //   <div className="bg-white h-[77px] flex my-4 p-1  rounded-3xl ">
+            //     <div className="m-auto">
+            //       <div className=" flex ">
+            //         <h3 className="text-[16px] text-[#252525] font-semibold  my-1 ">
+            //           Dr. David Russ
+            //         </h3>
+            //         <p className=" text-[#CA3BA1] text-[8px] font-semibold my-auto  mx-2">
+            //           (BDS, MDS)
+            //         </p>
+            //       </div>
 
-                  <p className=" text-[10px] ">K.T Nagar</p>
+            //       <p className=" text-[10px] ">K.T Nagar</p>
 
-                  <div className=" flex ">
-                    <h4 className="text-[12px] text-[#AD37E0] font-semibold  my-1 ">
-                      Availability :
-                    </h4>
-                    <p className=" text-[#252525] text-[8px] font-semibold my-auto  mx-2">
-                      10:00 AM - 01:00 PM, 04:00 PM - 09:00 PM
-                    </p>
-                  </div>
-                </div>
+            //       <div className=" flex ">
+            //         <h4 className="text-[12px] text-[#AD37E0] font-semibold  my-1 ">
+            //           Availability :
+            //         </h4>
+            //         <p className=" text-[#252525] text-[8px] font-semibold my-auto  mx-2">
+            //           10:00 AM - 01:00 PM, 04:00 PM - 09:00 PM
+            //         </p>
+            //       </div>
+            //     </div>
 
-                <div className=" h-[15px] w-[15px]  rounded-full m-auto mr-1 bg-[#F3EDF4]  shadow-2xl ">
-                  {" "}
-                  <div className="bg-gradient-to-br from-[#AD37E0] to-[#EE2B3B] h-[8px] w-[8px] rounded-full m-auto mt-1 shadow-2xl "></div>
-                </div>
-              </div>
-              {/* (BDS, MDS)  */}
-              <div className="bg-white h-[77px] flex my-4 p-1  rounded-3xl ">
-                <div className="m-auto">
-                  <div className=" flex ">
-                    <h3 className="text-[16px] text-[#252525] font-semibold  my-1 ">
-                      Dr. David Russ
-                    </h3>
-                    <p className=" text-[#CA3BA1] text-[8px] font-semibold my-auto  mx-2">
-                      (BDS, MDS)
-                    </p>
-                  </div>
+            //     <div className=" h-[15px] w-[15px]  rounded-full m-auto mr-1 bg-[#F3EDF4]  shadow-2xl ">
+            //       {" "}
+            //       <div className="bg-gradient-to-br from-[#AD37E0] to-[#EE2B3B] h-[8px] w-[8px] rounded-full m-auto mt-1 shadow-2xl "></div>
+            //     </div>
+            //   </div>
+            //   {/* (BDS, MDS)  */}
+            //   <div className="bg-white h-[77px] flex my-4 p-1  rounded-3xl ">
+            //     <div className="m-auto">
+            //       <div className=" flex ">
+            //         <h3 className="text-[16px] text-[#252525] font-semibold  my-1 ">
+            //           Dr. David Russ
+            //         </h3>
+            //         <p className=" text-[#CA3BA1] text-[8px] font-semibold my-auto  mx-2">
+            //           (BDS, MDS)
+            //         </p>
+            //       </div>
 
-                  <p className=" text-[10px] ">K.T Nagar</p>
+            //       <p className=" text-[10px] ">K.T Nagar</p>
 
-                  <div className=" flex ">
-                    <h4 className="text-[12px] text-[#AD37E0] font-semibold  my-1 ">
-                      Availability :
-                    </h4>
-                    <p className=" text-[#252525] text-[8px] font-semibold my-auto  mx-2">
-                      10:00 AM - 01:00 PM, 04:00 PM - 09:00 PM
-                    </p>
-                  </div>
-                </div>
+            //       <div className=" flex ">
+            //         <h4 className="text-[12px] text-[#AD37E0] font-semibold  my-1 ">
+            //           Availability :
+            //         </h4>
+            //         <p className=" text-[#252525] text-[8px] font-semibold my-auto  mx-2">
+            //           10:00 AM - 01:00 PM, 04:00 PM - 09:00 PM
+            //         </p>
+            //       </div>
+            //     </div>
 
-                <div className=" h-[15px] w-[15px]  rounded-full m-auto mr-1 bg-[#F3EDF4]  shadow-2xl ">
-                  {" "}
-                  <div className="bg-gradient-to-br from-[#AD37E0] to-[#EE2B3B] h-[8px] w-[8px] rounded-full m-auto mt-1 shadow-2xl "></div>
-                </div>
-              </div>
-              {/* (BDS, MDS)  */}
-              <div className="bg-white h-[77px] flex my-4 p-1  rounded-3xl ">
-                <div className="m-auto">
-                  <div className=" flex ">
-                    <h3 className="text-[16px] text-[#252525] font-semibold  my-1 ">
-                      Dr. David Russ
-                    </h3>
-                    <p className=" text-[#CA3BA1] text-[8px] font-semibold my-auto  mx-2">
-                      (BDS, MDS)
-                    </p>
-                  </div>
+            //     <div className=" h-[15px] w-[15px]  rounded-full m-auto mr-1 bg-[#F3EDF4]  shadow-2xl ">
+            //       {" "}
+            //       <div className="bg-gradient-to-br from-[#AD37E0] to-[#EE2B3B] h-[8px] w-[8px] rounded-full m-auto mt-1 shadow-2xl "></div>
+            //     </div>
+            //   </div>
+            //   {/* (BDS, MDS)  */}
+            //   <div className="bg-white h-[77px] flex my-4 p-1  rounded-3xl ">
+            //     <div className="m-auto">
+            //       <div className=" flex ">
+            //         <h3 className="text-[16px] text-[#252525] font-semibold  my-1 ">
+            //           Dr. David Russ
+            //         </h3>
+            //         <p className=" text-[#CA3BA1] text-[8px] font-semibold my-auto  mx-2">
+            //           (BDS, MDS)
+            //         </p>
+            //       </div>
 
-                  <p className=" text-[10px] ">K.T Nagar</p>
+            //       <p className=" text-[10px] ">K.T Nagar</p>
 
-                  <div className=" flex ">
-                    <h4 className="text-[12px] text-[#AD37E0] font-semibold  my-1 ">
-                      Availability :
-                    </h4>
-                    <p className=" text-[#252525] text-[8px] font-semibold my-auto  mx-2">
-                      10:00 AM - 01:00 PM, 04:00 PM - 09:00 PM
-                    </p>
-                  </div>
-                </div>
+            //       <div className=" flex ">
+            //         <h4 className="text-[12px] text-[#AD37E0] font-semibold  my-1 ">
+            //           Availability :
+            //         </h4>
+            //         <p className=" text-[#252525] text-[8px] font-semibold my-auto  mx-2">
+            //           10:00 AM - 01:00 PM, 04:00 PM - 09:00 PM
+            //         </p>
+            //       </div>
+            //     </div>
 
-                <div className=" h-[15px] w-[15px]  rounded-full m-auto mr-1 bg-[#F3EDF4]  shadow-2xl ">
-                  {" "}
-                  <div className="bg-[#e6979e] h-[8px] w-[8px] rounded-full m-auto mt-1 shadow-2xl "></div>
-                </div>
-              </div>
-            </div>
+            //     <div className=" h-[15px] w-[15px]  rounded-full m-auto mr-1 bg-[#F3EDF4]  shadow-2xl ">
+            //       {" "}
+            //       <div className="bg-[#e6979e] h-[8px] w-[8px] rounded-full m-auto mt-1 shadow-2xl "></div>
+            //     </div>
+            //   </div>
+            // </div>
+            <ChooseDoctor />
           }
         />
         <CustomDropDown
           trigger={
-            <div className="placeholder-white placeholder-opacity-50 backdrop-blur bg-white bg-opacity-10 rounded-full h-[45px] shadow-xl p-2 text-start   text-white font-semibold  ">
+            <div className="backdrop-blur bg-white bg-opacity-10 rounded-full h-[45px] shadow-xl p-2 text-start   text-white font-semibold  ">
               Choose consultation
             </div>
           }
-          content={
-            <div className="bg-[#FCF2FD] bottom-6 min-w-96 max-h-[268px] overflow-y-scroll my-4 p-4 rounded-3xl  ">
-              <h3 className="text-[16px] text-[#AD648D] font-semibold border-b border-[#F5D3E7] my-1 p-1 pb-2 ">
-                Video Call
-              </h3>
-              <h3 className="text-[16px] text-[#AD648D] font-semibold border-b border-[#F5D3E7] my-1 p-1 pb-2 ">
-                Voice Call
-              </h3>
-              <h3 className="text-[20px]  bg-gradient-to-br from-[#AD37E0] to-[#EE2B3B] text-transparent bg-clip-text font-extrabold  my-1 p-1  ">
-                Clinic Consultation
-              </h3>
-            </div>
-          }
+          content={<ChooseConsultation />}
         />
-        <button className="bg-[#252525] h-[50px] font-bold text-white text-[20px] text-bold uppercase text-center rounded-full">
-          <Link to="/invoice">Book Now</Link>
-        </button>
+          <Link to="/invoice">
+        <p className="bg-[#252525] h-[50px] font-bold text-white text-[20px] text-bold uppercase pt-2 text-center rounded-full">
+          Book Now
+        </p>
+          </Link>
       </div>
       {/* Dialog Trigger */}
       {showModal && (
         <div className="fixed inset-0 flex items-center justify-center bg-gray-500 bg-opacity-75 z-60 min-w-[300px]">
           <div
-            className="bg-white p-2 rounded-lg relative h-[501px]"
+            className="bg-white p-2 pt-1 rounded-lg relative h-[501px]"
             style={{
               backgroundImage: "url('/onboardingbg.svg')",
               backgroundPosition: "center",
@@ -746,11 +652,11 @@ export default function AppointmentForm() {
             }}
           >
             <div
-              className="h-[280px] relative mb-8"
+              className="h-[280px] relative -mt-12"
               style={{ backgroundImage: "url('/pngwing.svg')" }}
             ></div>
             <div
-              className="h-[199px] w-[199px] absolute top-5 left-[20vw]"
+              className="h-[199px] w-[199px] absolute -top-8 left-[90px]"
               style={{
                 backgroundImage: "url('/giftbox.svg')",
                 backgroundPosition: "center",
