@@ -38,3 +38,10 @@ code {
 ::-webkit-scrollbar-thumb:hover {
   background: #b30000;
 }
+
+.MuiMenu-list {
+  max-height: 140px; /* Set the maximum height of the menu */
+  overflow-y: auto; /* Add vertical scroll if content overflows */
+  border-radius: 20px;
+  margin-top: 10px;
+}

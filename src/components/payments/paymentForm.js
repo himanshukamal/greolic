@@ -11,13 +11,13 @@ export default function PaymentForm() {
         <p className="pt-[150px] text-[20px] text-[#fff] opacity-25 font-bold ml-2  leading-[18px] mx-4 pl-2">
           Your
         </p>
-        <p className="text-[36px] text-[#fff] font-bold leading-[40px] ml-2 mx-4 pl-2">
+        <p className="text-[36px] text-[#fff] font-bold leading-[40px] ml-2 mx-4 pl-2 pb-6">
           Card
         </p>
       </div>
       <div
         className={`max-w-[425px] relative  mx-auto right-0 left-0 ${
-          width < 321 ? `top-[-0.8em]` : "top-[-0.8em]"
+          width < 321 ? `top-[-1.5em]` : "top-[-1.5em]"
         }`}
       >
         <LazyLoadImage
@@ -35,8 +35,8 @@ export default function PaymentForm() {
           {/* payment box */}
         </div>
       </div>
-      <div className=" mt-4 flex gap-2 overflow-x-auto mx-auto py-4 w-[100%] max-w-[425px]">
-        <div className="text-center font-bold text-[14px] text-white w-[142px] h-[142px] min-w-[142px] rounded-[40px] bg-gradient-to-br from-[#AD37E0] to-[#EE2B3B] grid place-items-center shadow-lg shadow-rose-500 p-8">
+      <div className=" mt-4 flex gap-2 overflow-x-auto noscrollbar mx-auto py-4 w-[100%] max-w-[425px]">
+        <div className="ml-2 text-center font-bold text-[14px] text-white w-[142px] h-[142px] min-w-[142px] rounded-[40px] bg-gradient-to-br from-[#AD37E0] to-[#EE2B3B] grid place-items-center shadow-lg shadow-rose-500 p-8">
           <LazyLoadImage
             src="/icons/moneywithdrawal.svg"
             alt="money-withdrawal"
@@ -47,7 +47,7 @@ export default function PaymentForm() {
           <LazyLoadImage src="/icons/Credit Card.svg" alt="credit card" />
           Credit/Debit Card
         </div>
-        <div className="font-bold text-[14px] text-[#252525] w-[142px] h-[142px] rounded-[40px] bg-[#FCE7F3] grid place-items-center p-8">
+        <div className=" text-center font-bold text-[14px] text-[#252525] w-[142px] h-[142px] rounded-[40px] bg-[#FCE7F3] grid place-items-center p-8">
           <LazyLoadImage src="/icons/google-pay-icon.svg" alt="gpay" />
           UPI Payments
         </div>

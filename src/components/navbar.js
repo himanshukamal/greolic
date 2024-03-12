@@ -4,40 +4,38 @@ import { IoIosArrowDown } from "react-icons/io";
 import { Select, MenuItem, Drawer, Modal } from "@mui/material";
 import AnimatedCarousel from "./animatedCarousel";
 import { useWindowSize } from "@react-hook/window-size";
+import SelectCityModal from "./modals/selectCityModal";
 
 export default function Navbar() {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const [width, height] = useWindowSize();
-
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedCity, setSelectedCity] = useState("");
 
-  const handleCloseModal = () => {
-    setIsModalOpen(false);
-  };
-
-  const handleOpenModal = () => {
-    setIsModalOpen(true);
-  };
-
   const handleSelectCity = (event) => {
     setSelectedCity(event.target.value);
-    handleCloseModal(); // Close the modal after selecting the city
+    // Close the modal after selecting the city
   };
 
   const toggleDrawer = () => {
     setIsDrawerOpen(!isDrawerOpen);
   };
+  const handleOpenModal = () => {
+    setIsModalOpen(true);
+  };
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+  };
 
   return (
     <div className="flex flex-col h-[80px]">
       <div className="z-[52] fixed top-[30px] max-w-[425px] mx-auto left-0 right-0 z-49 bg-gradient-to-br from-[#E0379E] to-[#EE2B3B] p-[0.8rem]">
-        <div className="flex justify-between">
+        <div className="flex justify-between min-h-[54px] items-center">
           <LazyLoadImage src="/doclogo.svg" alt="My Image" />
           <div className="flex">
             <button
               onClick={handleOpenModal}
-              className="p-2 text-white font-semibold rounded-full bg-[#bb255e] px-4"
+              className="p-2 text-white font-semibold rounded-full bg-[#bb255e] px-4 text-[12px]"
             >
               {/* Open the modal on button click */}
               City
@@ -232,98 +230,7 @@ export default function Navbar() {
         </div>
       </div>
 
-      <Modal open={isModalOpen} onClose={handleCloseModal}>
-        <div className="rounded-[50px] modal-content w-full max-w-[400px] h-[501px] bg-white p-2 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-          <div
-            className="h-[185px] w-full relative"
-            style={{
-              backgroundImage: "url('/locationbg.svg')",
-              objectFit: "cover",
-              backgroundRepeat: "round",
-              backgroundSize: "auto",
-            }}
-          >
-            <button
-              className="absolute right-4 top-4"
-              onClick={handleCloseModal}
-            >
-              <LazyLoadImage src="/roundedclose.svg" alt="Close" />
-            </button>
-          </div>
-
-          <div className="rounded-[30px] bg-[#FCE7F3] h-[167px] p-4 mt-2">
-            <p className="font-bold text-[12px] text-[#252525]">Cities</p>
-            <Select
-              className="text-[13px] font-bold text-black bg-transparent border-none appearance-none pr-2"
-              IconComponent={IoIosArrowDown}
-              value={selectedCity}
-              onChange={handleSelectCity}
-              defaultValue="delhi"
-              sx={{
-                fontSize: "13px",
-                width: "100%",
-                borderRadius: "30px",
-                backgroundColor: "white",
-                textAlign: "center",
-                fontWeight: "500",
-                color: "#D972AE",
-                outline: "none",
-                "& svg": {
-                  color: "#000",
-                },
-                "&:focus": {
-                  border: "none",
-                  outline: "none",
-                },
-                ".MuiOutlinedInput-notchedOutline": { border: 0 },
-              }}
-            >
-              <MenuItem value="Mumbai">Mumbai</MenuItem>
-              <MenuItem value="Delhi">Delhi</MenuItem>
-              <MenuItem value="Chennai">Chennai</MenuItem>
-              {/* Add more cities here */}
-            </Select>
-            <button className="rounded-full bg-gradient-to-br from-[#AD37E0] to-[#EE2B3B] text-white font-bold text-center mt-4 py-[10px] w-full">
-              Choose City to proceed
-            </button>
-          </div>
-
-          <div className="relative h-[109px] w-full bg-gradient-to-br from-[#AD37E0] to-[#EE2B3B] rounded-[40px] mt-2 p-4 flex overflow-hidden justify-around items-center">
-            {/* bg circle */}
-            <div className="w-[220px] h-[220px] p-14 absolute right-[-65px] top-[-107px] bg-gradient-to-br opacity-10 from-transparent to-white rounded-full">
-              <div className="w-full h-full bg-[#252525] rounded-full"></div>
-            </div>
-
-            {/* bg-left */}
-
-            <div className="w-[108px] h-[108px] p-7 absolute left-[-8px] top-[-39px] bg-gradient-to-br opacity-10 from-transparent to-white rounded-full">
-              <div className="w-full h-full bg-[#252525] rounded-full"></div>
-            </div>
-
-            <div className="w-60">
-              <p className="text-white font-black text-[18px]">
-                Download app now!!
-              </p>
-              <p className="text-[8px] mt-2 text-white">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam
-                eu turpis molestie.
-              </p>
-            </div>
-            <div className="flex flex-col">
-              <LazyLoadImage
-                src="appstore.svg"
-                alt="appstore"
-                className="w-[56px]"
-              />
-              <LazyLoadImage
-                src="playstoreicon.svg"
-                alt="play store"
-                className="w-[56px]"
-              />
-            </div>
-          </div>
-        </div>
-      </Modal>
+      <SelectCityModal isOpen={isModalOpen} onClose={handleCloseModal} />
     </div>
   );
 }
