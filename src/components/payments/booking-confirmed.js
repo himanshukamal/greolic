@@ -2,6 +2,7 @@ import { Modal } from "@mui/material";
 import { useState } from "react";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import OtpInput from "./otp-input";
+import PaymentFailed from "./sorry";
 
 export default function BookingConfirmed() {
   const [open, setOpen] = useState(false);
@@ -46,11 +47,27 @@ export default function BookingConfirmed() {
                 </p>
               </div>
 
-              <button className=" text-white rounded-full w-full mx-auto my-4 h-[50px] bg-gradient-to-br from-[#AD37E0] to-[#EE2B3B] font-bold uppercase text-[14px]">
-                Submit
-              </button>
+              <div className=" bg-[#FCF2FD] rounded-[50px]  py-2 px-4 my-2 w-full ">
+                <h3 className="mt-4 text-[20px] font-bold bg-gradient-to-br from-[#AD37E0] to-[#EE2B3B] text-transparent bg-clip-text">
+                  Never Miss An Update
+                </h3>
+                <p className=" text-[#252525] text-[10px] ">
+                  Enter your alternate email so that you never miss reminders,
+                  confirmations, and all the details you need for a smooth
+                  experience.
+                </p>
+                <input
+                  type="text"
+                  className="h-[46px] w-full mb-2 rounded-full pl-6 my-4  border-none outline-none"
+                  placeholder="Email ID ( Optional )"
+                />
+              </div>
 
-            
+              {/* <button className=" text-white rounded-full w-full mx-auto my-4 h-[50px] bg-gradient-to-br from-[#AD37E0] to-[#EE2B3B] font-bold uppercase text-[14px]">
+                Submit
+              </button> */}
+
+              <PaymentFailed />
             </div>
 
             {/* CLOSE BTN  */}

@@ -401,18 +401,15 @@ export default function AppointmentForm() {
               Choose Date & Time
             </div>
           }
-          // ${
-          //   width < 321 ? `w-[300px]` : `w-[358px]`
-          // }
           content={
-            <>
+            <div className="py-2 px-[2px] bg-[#FCF2FD] rounded-3xl ">
               <div
-                className={`bg-[#FCF2FD] bottom-6   min-h-[500px] my-2 py-4 px-6 rounded-3xl`}
+                className={`bg-[#FCF2FD] bottom-6  max-h-[60vh] overflow-y-scroll min-h-[500px] my-2 py-4 px-6 rounded-3xl`}
               >
                 <h3 className=" mt-2 mb-4  text-[13px] font-bold  text-[#252525] ">
                   Date
                 </h3>
-               <DateSelector onSelectDate={handleDateSelect}  />
+                <DateSelector onSelectDate={handleDateSelect} />
                 <h3 className=" mt-2 mb-4  text-[13px] font-bold  text-[#252525] ">
                   Time
                 </h3>
@@ -421,14 +418,15 @@ export default function AppointmentForm() {
 
                 <div className="my-4 mx-1 px-4 py-4 bg-[#252525] rounded-full flex justify-between ">
                   <h2 className="text-[16px] font-[900]  bg-gradient-to-br from-[#AD37E0] to-[#EE2B3B] text-transparent bg-clip-text">
-                    {selectedDate ?? '13 Dec 2022,'} {selectedTime ?? '02:00 pm'}
+                    {selectedDate ?? "13 Dec 2022,"}{" "}
+                    {selectedTime ?? "02:00 pm"}
                   </h2>
                   <div className=" flex flex-col justify-center items-center text-white w-[66px] h-[24px] rounded-[20px] bg-gradient-to-r from-[#AD37E0] to-[#EE2B3B]  drop-shadow shadow-md  shadow-rose-400 ">
                     <h3 className=" text-[10px] font-black ">DONE</h3>
                   </div>
                 </div>
               </div>
-            </>
+            </div>
           }
         />
         <CustomDropDown
@@ -633,11 +631,11 @@ export default function AppointmentForm() {
           }
           content={<ChooseConsultation />}
         />
-          <Link to="/invoice">
-        <p className="bg-[#252525] h-[50px] font-bold text-white text-[20px] text-bold uppercase pt-2 text-center rounded-full">
-          Book Now
-        </p>
-          </Link>
+        <Link to="/invoice">
+          <p className="bg-[#252525] h-[50px] font-bold text-white text-[20px] text-bold uppercase pt-2 text-center rounded-full">
+            Book Now
+          </p>
+        </Link>
       </div>
       {/* Dialog Trigger */}
       {showModal && (
