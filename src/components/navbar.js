@@ -37,7 +37,7 @@ export default function Navbar() {
           <div className="flex">
             <button
               onClick={handleOpenModal}
-              className="p-2 text-white font-semibold rounded-full bg-[#bb255e] px-4"
+              className="p-2 text-white font-semibold rounded-full bg-[#bb255e] px-4 text-[12px]"
             >
               {/* Open the modal on button click */}
               City
@@ -288,6 +288,7 @@ export default function Navbar() {
             </button>
           </div>
 
+          {/* last div */}
           <div className="relative h-[109px] w-full bg-gradient-to-br from-[#AD37E0] to-[#EE2B3B] rounded-[40px] mt-2 p-4 flex overflow-hidden justify-around items-center">
             {/* bg circle */}
             <div className="w-[220px] h-[220px] p-14 absolute right-[-65px] top-[-107px] bg-gradient-to-br opacity-10 from-transparent to-white rounded-full">
