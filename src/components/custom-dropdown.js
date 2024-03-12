@@ -13,9 +13,7 @@ export default function CustomDropDown({ trigger, content }) {
 
       <DropdownMenu.Portal>
         <DropdownMenu.Content
-          className={` ${
-            width < 321 ? `w-[300px]` : `w-[358px]`
-          } max-h-[60vh] overflow-y-scroll`}
+          className={` ${width < 321 ? `w-[300px]` : `w-[358px]`} `}
         >
           {content}
         </DropdownMenu.Content>

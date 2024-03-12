@@ -156,44 +156,46 @@ export default function AppointmentForm() {
             placeholder="Enter Name"
             className="backdrop-blur bg-white bg-opacity-10  rounded-full h-[45px] shadow-xl p-2 mt-8 text-white font-semibold placeholder:text-white focus:outline-none "
           />
+          <div classname="max-h-[60vh] overflow-y-scroll w-full">
+            <CustomDropDown
+              trigger={
+                <div className="backdrop-blur bg-white bg-opacity-10 rounded-full h-[45px] shadow-xl p-2 text-start   text-white font-semibold">
+                  Choose Date & Time
+                </div>
+              }
+              // ${
+              //   width < 321 ? `w-[300px]` : `w-[358px]`
+              // }
+              content={
+                <>
+                  <div
+                    className={`bg-[#FCF2FD] bottom-6   min-h-[500px] my-2 py-4 px-6 rounded-3xl`}
+                  >
+                    <h3 className=" mt-2 mb-4  text-[13px] font-bold  text-[#252525] ">
+                      Date
+                    </h3>
+                    <DateSelector onSelectDate={handleDateSelect} />
+                    <h3 className=" mt-2 mb-4  text-[13px] font-bold  text-[#252525] ">
+                      Time
+                    </h3>
 
-          <CustomDropDown
-            trigger={
-              <div className="backdrop-blur bg-white bg-opacity-10 rounded-full h-[45px] shadow-xl p-2 text-start   text-white font-semibold">
-                Choose Date & Time
-              </div>
-            }
-            // ${
-            //   width < 321 ? `w-[300px]` : `w-[358px]`
-            // }
-            content={
-              <>
-                <div
-                  className={`bg-[#FCF2FD] bottom-6   min-h-[500px] my-2 py-4 px-6 rounded-3xl`}
-                >
-                  <h3 className=" mt-2 mb-4  text-[13px] font-bold  text-[#252525] ">
-                    Date
-                  </h3>
-                  <DateSelector onSelectDate={handleDateSelect} />
-                  <h3 className=" mt-2 mb-4  text-[13px] font-bold  text-[#252525] ">
-                    Time
-                  </h3>
+                    <TimeSelector onSelectTime={handleTimeSelect} />
 
-                  <TimeSelector onSelectTime={handleTimeSelect} />
-
-                  <div className="my-4 mx-1 px-4 py-4 bg-[#252525] rounded-full flex justify-between ">
-                    <h2 className="text-[16px] font-[900]  bg-gradient-to-br from-[#AD37E0] to-[#EE2B3B] text-transparent bg-clip-text">
-                      {selectedDate ?? "13 Dec 2022,"}{" "}
-                      {selectedTime ?? "02:00 pm"}
-                    </h2>
-                    <div className=" flex flex-col justify-center items-center text-white w-[66px] h-[24px] rounded-[20px] bg-gradient-to-r from-[#AD37E0] to-[#EE2B3B]  drop-shadow shadow-md  shadow-rose-400 ">
-                      <h3 className=" text-[10px] font-black ">DONE</h3>
+                    <div className="my-4 mx-1 px-4 py-4 bg-[#252525] rounded-full flex justify-between ">
+                      <h2 className="text-[16px] font-[900]  bg-gradient-to-br from-[#AD37E0] to-[#EE2B3B] text-transparent bg-clip-text">
+                        {selectedDate ?? "13 Dec 2022,"}{" "}
+                        {selectedTime ?? "02:00 pm"}
+                      </h2>
+                      <div className=" flex flex-col justify-center items-center text-white w-[66px] h-[24px] rounded-[20px] bg-gradient-to-r from-[#AD37E0] to-[#EE2B3B]  drop-shadow shadow-md  shadow-rose-400 ">
+                        <h3 className=" text-[10px] font-black ">DONE</h3>
+                      </div>
                     </div>
                   </div>
-                </div>
-              </>
-            }
-          />
+                </>
+              }
+            />
+          </div>
+
           <CustomDropDown
             trigger={
               <div className="backdrop-blur bg-white bg-opacity-10 rounded-full h-[45px] shadow-xl p-2 text-start   text-white font-semibold  ">

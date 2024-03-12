@@ -30,7 +30,7 @@ export default function Navbar() {
   return (
     <div className="flex flex-col h-[80px]">
       <div className="z-[52] fixed top-[30px] max-w-[425px] mx-auto left-0 right-0 z-49 bg-gradient-to-br from-[#E0379E] to-[#EE2B3B] p-[0.8rem]">
-        <div className="flex justify-between">
+        <div className="flex justify-between min-h-[54px] items-center">
           <LazyLoadImage src="/doclogo.svg" alt="My Image" />
           <div className="flex">
             <button
