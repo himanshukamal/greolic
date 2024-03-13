@@ -5,7 +5,7 @@ import { IoIosArrowDown } from "react-icons/io";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
 
-export default function InvoiceNavbar() {
+export default function PaymentNavbar() {
   const [showFirstCard, setShowFirstCard] = useState(true);
 
   useEffect(() => {
@@ -25,7 +25,7 @@ export default function InvoiceNavbar() {
         <div className=" fixed top-[30px] max-w-[425px] mx-auto left-0 right-0  px-4 flex justify-between items-center">
           <div className="flex items-center">
             <button>
-              <Link to="/landing">
+              <Link to="/invoice">
                 <LazyLoadImage
                   src="/eva_arrow-back-fill.svg"
                   alt="My Image"
