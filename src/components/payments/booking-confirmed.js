@@ -46,6 +46,30 @@ export default function BookingConfirmed() {
                   For more details go to upcoming appointments.
                 </p>
               </div>
+              <div className="bg-[#252525] py-4 px-4 w-full my-2 rounded-[35px] text-white text-[11px]">
+                <div className="flex justify-around">
+                  <p>Patient Name</p>
+                  <p className="font-bold min-w-[133px]">Wayne Bruce</p>
+                </div>
+                <div className="flex justify-around mt-1">
+                  <p>Date & Time</p>
+                  <p className="font-bold min-w-[133px]">12 Nov, 11:00 am</p>
+                </div>
+                <div className="flex justify-around mt-1">
+                  <p>Service</p>
+                  <p className="font-bold min-w-[133px]">Dental Braces</p>
+                </div>
+                <div className="flex justify-around mt-1">
+                  <p>Address</p>
+                  <p className="font-bold max-w-[133px]">
+                    Dental Clinic
+                    <span className="text-[8px]">
+                      <br />
+                      12/2, Mathura Road, Sector 37, Faridabad - Delhi
+                    </span>
+                  </p>
+                </div>
+              </div>
 
               <div className=" bg-[#FCF2FD] rounded-[50px]  py-2 px-4 my-2 w-full ">
                 <h3 className="mt-4 text-[20px] font-bold bg-gradient-to-br from-[#AD37E0] to-[#EE2B3B] text-transparent bg-clip-text">
