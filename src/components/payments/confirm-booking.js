@@ -23,12 +23,12 @@ export default function ConfirmBooking() {
           className="h-[50px] flex items-center justify-center bg-white rounded-full shadow-lg"
         >
           <span
-            className="text-[16px] px-4 font-bold bg-gradient-to-r from-pink-500 to-red-500 text-transparent bg-clip-text uppercase"
-            style={{
-              backgroundImage: "linear-gradient(to right, #FF6CBE, #FF6666)",
-            }}
+            className="text-[16px] px-4 font-bold bg-gradient-to-r from-[#AD37E0] to-[#EE2B3B] text-transparent bg-clip-text uppercase"
+            // style={{
+            //   backgroundImage: "linear-gradient(to right, #FF6CBE, #FF6666)",
+            // }}
           >
-            Login
+            Pay cash
           </span>
         </button>
 

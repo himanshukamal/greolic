@@ -3,8 +3,10 @@ import { LazyLoadImage } from "react-lazy-load-image-component";
 import "@fontsource/montserrat";
 import "@fontsource/montserrat/800.css";
 import { Link } from "react-router-dom";
+import { useWindowSize } from "@react-hook/window-size";
 
 export default function Basefooter({ btnName, link, customBtn }) {
+  const [width, height] = useWindowSize();
   return (
     <div className="relative">
       <div className="h-[194px] bg-[#FCE7F3] ">
@@ -46,15 +48,29 @@ export default function Basefooter({ btnName, link, customBtn }) {
         </div>
       </div>
       <div className="bg-[#ecc0d9] h-[30px] flex justify-around items-center mb-[75px]">
-        <p className="text-[10px] text-[#93607D] font-bold">Privacy Policy</p>
+        <p
+          className={` ${
+            width < 321 ? "text-[8px]" : "text-[10px]"
+          } text-[10px] text-[#93607D] font-bold`}
+        >
+          Privacy Policy
+        </p>
         <div className="flex">
           <LazyLoadImage src="/Copyright.svg" alt="Copyright" />
-          <p className="text-[10px] text-[#93607D] font-bold ml-1">
+          <p
+            className={`${
+              width < 321 ? "text-[8px]" : "text-[10px]"
+            } text-[#93607D] font-bold ml-1`}
+          >
             2022. All rights reserved.
           </p>
         </div>
 
-        <p className="text-[10px] text-[#93607D] font-bold">
+        <p
+          className={`${
+            width < 321 ? "text-[8px]" : "text-[10px]"
+          } text-[10px] text-[#93607D] font-bold`}
+        >
           Terms & Conditions
         </p>
       </div>

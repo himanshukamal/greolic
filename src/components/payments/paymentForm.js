@@ -50,7 +50,7 @@ export default function PaymentForm() {
             <LazyLoadImage src="/icons/Credit Card.svg" alt="credit card" />
             Credit/Debit Card
           </div>
-          <div className=" text-center font-bold text-[12px] text-[#252525] w-[142px] h-[142px] rounded-[40px] bg-[#FCE7F3] grid place-items-center p-8">
+          <div className=" text-center font-bold text-[12px] text-[#252525] min-w-[142px] h-[142px] rounded-[40px] bg-[#FCE7F3] grid place-items-center p-8">
             <LazyLoadImage src="/icons/google-pay-icon.svg" alt="gpay" />
             UPI Payments
           </div>
