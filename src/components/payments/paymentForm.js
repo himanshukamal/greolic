@@ -100,8 +100,12 @@ export default function PaymentForm() {
           <LazyLoadImage
             src="/femaledoc.svg"
             alt="phone"
-            className={`absolute  right-0 w-[225px] h-[223px]
-            ${width <= 320 ? "w-[167px] h-[165px] top-[-16px]" : "top-[-23px] "}
+            className={`absolute  right-0 
+            ${
+              width <= 320
+                ? "w-[167px] h-[165px] top-[-16px]"
+                : "top-[-23px] w-[225px] h-[223px]"
+            }
             `}
           />
         </div>
