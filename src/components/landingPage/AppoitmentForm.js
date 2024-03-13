@@ -639,52 +639,82 @@ export default function AppointmentForm() {
       </div>
       {/* Dialog Trigger */}
       {showModal && (
-        <div className="fixed inset-0 flex items-center justify-center bg-gray-500 bg-opacity-75 z-60 min-w-[300px]">
+        <div className="fixed inset-0 flex items-center justify-center bg-gray-500 bg-opacity-75 z-[60] min-w-[300px]">
           <div
             className="bg-white p-2 pt-1 rounded-lg relative h-[501px]"
             style={{
-              backgroundImage: "url('/onboardingbg.svg')",
-              backgroundPosition: "center",
+              backgroundImage: "url('/Union (1).svg')",
+              backgroundPosition: "top",
               backgroundRepeat: "no-repeat",
               borderRadius: "40px",
             }}
           >
             <div
-              className="h-[280px] relative -mt-12"
+              className="h-[280px] relative -mt-[6em] left-[-4%]"
               style={{ backgroundImage: "url('/pngwing.svg')" }}
             ></div>
             <div
-              className="h-[199px] w-[199px] absolute -top-8 left-[90px]"
+              className="h-[199px] w-[199px] absolute -top-8  left-[24%]"
               style={{
                 backgroundImage: "url('/giftbox.svg')",
                 backgroundPosition: "center",
               }}
             ></div>
+            <div className="flex flex-row-reverse">
+              <LazyLoadImage
+                src="/priceDrop.svg"
+                alt="bg"
+                className=" h-[124px] w-[106px]"
+              />
+            </div>
 
-            {/* <LazyLoadImage
-              src="/giftbox.svg"
-              alt="bg"
-              className="absolute top-[-5em] h-[199px] w-[199px]"
-            /> */}
-            <h2 className="text-2xl font-bold mb-4 text-transparent">
-              This is a Tailwind CSS modal!
-            </h2>
+            <div className=" flex justify-center">
+              <h2 className="text-2xl font-bold text-[#252525] text-center">
+                Quality Care at Very Low Price
+              </h2>
+            </div>
+            <p className="font-semibold text-center bg-gradient-to-br from-[#AD37E0] to-[#EE2B3B] text-transparent bg-clip-text text-[12px]">
+              Affordable care begins at{" "}
+              <span className="text-lg font-bold">Rs. 200.</span>
+            </p>
+
             {/* <p className="mb-4">Triggered after 3 seconds.</p> */}
             <button className="absolute right-4 top-4" onClick={handleClose}>
               <LazyLoadImage src="/roundedclose.svg" alt="Close" />
             </button>
-            <button
-              onClick={handleShowAppDownloadModal}
-              className="px-8 text-white rounded-full absolute bottom-[1.75em] right-[.85em] h-[50px] bg-gradient-to-br from-[#AD37E0] to-[#EE2B3B] font-bold uppercase text-[14px]"
-            >
-              Start Booking
-            </button>
+            <div className="absolute bottom-[1.75em] w-[100%]">
+              <div className="flex justify-around items-center  w-full">
+                <div className="flex w-[100px] flex-col">
+                  <p className="text-[8px] font-bold text-[#252525]">
+                    T&C Applies*
+                  </p>
+                  <div className="flex">
+                    <LazyLoadImage
+                      src="appstore.svg"
+                      alt="appstore"
+                      className="w-[56px]"
+                    />
+                    <LazyLoadImage
+                      src="playstoreicon.svg"
+                      alt="play store"
+                      className="w-[56px] ml-2"
+                    />
+                  </div>
+                </div>
+                <button
+                  onClick={handleShowAppDownloadModal}
+                  className="px-8 text-white rounded-full  h-[50px] bg-gradient-to-br from-[#AD37E0] to-[#EE2B3B] font-bold uppercase text-[14px] drop-shadow-lg shadow-lg shadow-rose-400"
+                >
+                  Start Booking
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       )}
 
       {showAppDownloadModal && (
-        <div className="fixed inset-0 flex items-center justify-center bg-gray-500 bg-opacity-75 z-61 min-w-[300px]">
+        <div className="fixed inset-0 flex items-center justify-center bg-gray-500 bg-opacity-75 z-[61] min-w-[300px]">
           <div className="bg-white h-[px] p-4 rounded-[40px] mx-2">
             <LazyLoadImage src="/downloadapp.svg" alt="download app" />
             <div className="flex justify-around mt-4">
