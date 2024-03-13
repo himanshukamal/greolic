@@ -25,9 +25,9 @@ export default function AnimatedCarousel() {
             {showFirstCard ? (
               <motion.div
                 key="first"
-                initial={{ opacity: 0, x: "100%" }}
+                initial={{ opacity: 0, x: "60%" }}
                 animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: "-100%" }}
+                exit={{ opacity: 0, x: "-60%" }}
                 transition={{ duration: 0.6, ease: "easeInOut" }}
               >
                 <div className="w-[196px] h-[50px] rounded-full bg-[#F3EDF4] text-center mx-auto flex items-center justify-evenly mt-[40px] shadow-sm">
@@ -64,9 +64,9 @@ export default function AnimatedCarousel() {
             ) : (
               <motion.div
                 key="second"
-                initial={{ opacity: 0, x: "100%" }}
+                initial={{ opacity: 0, x: "60%" }}
                 animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: "-100%" }}
+                exit={{ opacity: 0, x: "-60%" }}
                 transition={{ duration: 0.6, ease: "easeInOut" }}
               >
                 <div className="px-4 h-[50px] rounded-full bg-[#F3EDF4] text-center mx-auto flex items-center justify-evenly mt-[40px] shadow-sm">
