@@ -7,13 +7,22 @@ export default function PaymentForm() {
   const [width, height] = useWindowSize();
   return (
     <div className="">
-      <div className=" backdrop-blur-md bg-gradient-to-br from-[#C133AE] to-[#EE2B3B] rounded-bl-[45px] pl-2 pb-2 ">
-        <p className="pt-[150px] text-[20px] text-[#fff] opacity-25 font-bold ml-2  leading-[18px] mx-4 pl-2">
-          Your
-        </p>
-        <p className="text-[36px] text-[#fff] font-bold leading-[40px] ml-2 mx-4 pl-2 pb-6">
-          Card
-        </p>
+      <div className=" backdrop-blur-md bg-gradient-to-br from-[#C133AE] to-[#EE2B3B] rounded-bl-[45px] pb-2 ">
+        <div
+          style={{
+            backgroundImage:
+              "url('/Rectangle 1716.svg'),url('/Rectangle 1713.svg')",
+            backgroundPosition: "top left,top right",
+            backgroundRepeat: "no-repeat,no-repeat",
+          }}
+        >
+          <p className="pt-[150px] text-[20px] text-[#fff] opacity-25 font-bold ml-2  leading-[18px] mx-4 pl-2">
+            Your
+          </p>
+          <p className="text-[36px] text-[#fff] font-bold leading-[40px] ml-2 mx-4 pl-2 pb-6">
+            Card
+          </p>
+        </div>
       </div>
       <div
         className={`max-w-[425px] relative  mx-auto right-0 left-0 ${

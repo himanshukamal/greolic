@@ -17,7 +17,7 @@ export default function PaymentNavbar() {
   }, []);
 
   return (
-    <div className="relative overflow-visible ">
+    <div className="relative overflow-visible">
       <div className="fixed w-full max-w-[425px] top-[30px] z-[50] bg-gradient-to-br from-[#C133AE] to-[#D72F75]  p-2 h-[76px] overflow-visible">
         {/* white bg */}
         {/* <div className="absolute bg-white top-[-28px] opacity-5 w-[223px] h-[312px] rotate-[35deg]  right-[-52px] z-[-2]"></div> */}
