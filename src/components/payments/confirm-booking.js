@@ -33,8 +33,8 @@ export default function ConfirmBooking() {
         </button>
 
         <Modal open={open} onClose={handleClose}>
-          <div className="relative  modal-content w-full max-w-[400px]    top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-            <div className="h-full bg-white rounded-[50px] pb-2">
+          <div className="relative  modal-content w-full max-w-[400px]  top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+            <div className="h-full bg-white rounded-[50px] pb-2 mx-2">
               {/* <div
                 style={{
                   backgroundImage: `url('/images/bg-top.png')`,

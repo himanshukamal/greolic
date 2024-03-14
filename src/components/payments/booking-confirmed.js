@@ -19,22 +19,27 @@ export default function BookingConfirmed() {
     <>
       <div>
         {/* Trigger btn  */}
-
-        <button
-          onClick={handleOpen}
-          className=" text-white rounded-full w-full mx-auto my-4 h-[50px] bg-gradient-to-br from-[#AD37E0] to-[#EE2B3B] font-bold uppercase text-[14px]"
-        >
-          Verify
-        </button>
+        <div className="mx-2">
+          <button
+            onClick={handleOpen}
+            className=" text-white rounded-full w-full mx-auto my-4 h-[50px] bg-gradient-to-br from-[#AD37E0] to-[#EE2B3B] font-bold uppercase text-[20px] shadow-md shadow-rose-500"
+          >
+            Verify
+          </button>
+        </div>
 
         <Modal open={open} onClose={handleClose}>
-          <div className="relative rounded-[50px] modal-content w-full max-w-[400px] min-h-[600px]  bg-white p-2  top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-            <div className="h-full">
-              <img src="/images/bg-top.png" alt="" className=" h-[178px] " />
+          <div className="relative rounded-[50px] modal-content w-full max-w-[400px] min-h-[600px]  top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+            <div className="h-full bg-white rounded-[50px] mx-2 pb-2">
+              {/* <img src="/images/bg-top.png" alt="" className=" h-[178px] " /> */}
+              <div className="flex justify-center">
+                <img src="/brownpinkbg.svg" alt="brownpinkbg" />
+              </div>
+
               <img
                 src="/images/booking.png"
                 alt=""
-                className="absolute -top-20 left-20 h-[189px] "
+                className="absolute -top-10 left-20 h-[189px] "
               />
 
               <div className="py-1 px-6">
@@ -42,7 +47,7 @@ export default function BookingConfirmed() {
                 <h3 className=" text-[32px] font-bold bg-gradient-to-br from-[#AD37E0] to-[#EE2B3B] text-transparent bg-clip-text">
                   Booking Confirmed
                 </h3>
-                <p className=" text-[#252525] ">
+                <p className=" text-[#252525] text-[12px]">
                   For more details go to upcoming appointments.
                 </p>
               </div>

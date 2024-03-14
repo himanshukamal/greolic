@@ -30,9 +30,10 @@ export default function Verification() {
         </div>
 
         <Modal open={open} onClose={handleClose}>
-          <div className="relative rounded-[50px] modal-content w-full max-w-[400px]  bg-white p-2  top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-            <div className="h-full">
-              <img src="/images/bg-top.png" alt="" className=" h-[178px] " />
+          <div className="relative  modal-content w-full max-w-[400px]   top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+            <div className="h-full bg-white rounded-[50px] mx-2 pb-2">
+              {/* <img src="/images/bg-top.png" alt="" className=" h-[178px] " /> */}
+              <img src="/brownpinkbg.svg" alt="brownpinkbg" />
               <img
                 src="/images/verChar.png"
                 alt=""
@@ -44,18 +45,21 @@ export default function Verification() {
                 <h3 className=" text-[32px] font-bold bg-gradient-to-br from-[#AD37E0] to-[#EE2B3B] text-transparent bg-clip-text">
                   Verification
                 </h3>
-                <p className=" text-[#252525] ">
+                <p className=" text-[#252525] text-[12px]">
                   Enter OTP sent to registered email & Phone no.
                 </p>
               </div>
-
-              <OtpInput />
+              <div className="mx-2">
+                <OtpInput />
+              </div>
 
               {/* <button className=" text-white rounded-full w-full mx-auto my-4 h-[50px] bg-gradient-to-br from-[#AD37E0] to-[#EE2B3B] font-bold uppercase text-[14px]">
                 Verify
               </button> */}
-
-              <BookingConfirmed />
+              <div className="mx-2">
+                {" "}
+                <BookingConfirmed />
+              </div>
 
               <p className=" font-extrabold text-center text-sm my-6 text-[#252525] ">
                 Didn’t Receive? Resend
