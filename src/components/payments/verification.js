@@ -20,12 +20,14 @@ export default function Verification() {
       <div>
         {/* Trigger btn  */}
 
-        <button
-          onClick={handleOpen}
-          className=" text-white rounded-full w-full mx-auto my-4 h-[50px] bg-gradient-to-br from-[#AD37E0] to-[#EE2B3B] font-bold uppercase text-[14px]"
-        >
-          PROCEED
-        </button>
+        <div className="mx-2">
+          <button
+            onClick={handleOpen}
+            className=" text-white rounded-full w-full my-4 h-[50px] bg-gradient-to-br from-[#AD37E0] to-[#EE2B3B] font-bold uppercase text-[20px] shadow-md shadow-rose-500"
+          >
+            PROCEED
+          </button>
+        </div>
 
         <Modal open={open} onClose={handleClose}>
           <div className="relative rounded-[50px] modal-content w-full max-w-[400px]  bg-white p-2  top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
@@ -55,7 +57,9 @@ export default function Verification() {
 
               <BookingConfirmed />
 
-              <p className=" font-extrabold text-center text-sm my-6 text-[#252525] ">Didn’t Receive? Resend</p>
+              <p className=" font-extrabold text-center text-sm my-6 text-[#252525] ">
+                Didn’t Receive? Resend
+              </p>
             </div>
 
             {/* CLOSE BTN  */}

@@ -33,9 +33,17 @@ export default function ConfirmBooking() {
         </button>
 
         <Modal open={open} onClose={handleClose}>
-          <div className="relative rounded-[50px] modal-content w-full max-w-[400px]  bg-white p-2  top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-            <div className="h-full">
-              <img src="/images/bg-top.png" alt="" className=" h-[178px] " />
+          <div className="relative  modal-content w-full max-w-[400px]    top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+            <div className="h-full bg-white rounded-[50px] pb-2">
+              {/* <div
+                style={{
+                  backgroundImage: `url('/images/bg-top.png')`,
+                  backgroundPosition: "top",
+                  height: "200px",
+                  backgroundRepeat: "no-repeat",
+                }}
+              ></div> */}
+              <img src="/brownpinkbg.svg" alt="brownpinkbg" />
               <img
                 src="/images/loginChar.png"
                 alt=""
@@ -47,22 +55,24 @@ export default function ConfirmBooking() {
                 <h3 className=" text-[32px] font-bold bg-gradient-to-br from-[#AD37E0] to-[#EE2B3B] text-transparent bg-clip-text">
                   Confirm Booking
                 </h3>
-                <p className=" text-[#252525] ">
+                <p className=" text-[#252525] text-[12px]">
                   by providing your phone no. & email id.
                 </p>
               </div>
 
-              <div className=" bg-[#FCF2FD] rounded-[50px] p-2 w-full ">
-                <input
-                  type="text"
-                  className="h-[46px] w-full mb-2 rounded-full pl-6  border-none outline-none"
-                  placeholder="Phone No"
-                />
-                <input
-                  type="email"
-                  className="h-[46px] w-full rounded-full pl-6  border-none outline-none"
-                  placeholder="Email ID"
-                />
+              <div className="mx-2">
+                <div className=" bg-[#FCF2FD] rounded-[35px] p-2 py-4 w-full">
+                  <input
+                    type="text"
+                    className="h-[46px] w-full mb-2 rounded-full pl-6  border-none outline-none"
+                    placeholder="Phone No"
+                  />
+                  <input
+                    type="email"
+                    className="h-[46px] w-full rounded-full pl-6  border-none outline-none"
+                    placeholder="Email ID"
+                  />
+                </div>
               </div>
 
               {/* <button className=" text-white rounded-full w-full mx-auto my-4 h-[50px] bg-gradient-to-br from-[#AD37E0] to-[#EE2B3B] font-bold uppercase text-[14px]">
@@ -70,13 +80,18 @@ export default function ConfirmBooking() {
               </button> */}
 
               <Verification />
-
-              <div className=" bg-[#252525] text-white rounded-full w-full mx-auto mt-6 px-4 py-4 ">
-                <h4 className="text-center ">
-                  {" "}
-                  Your appointment is scheduled for Friday, November 12th at 11
-                  am in Faridabad.{" "}
-                </h4>
+              <div className="mx-2">
+                <div className=" bg-[#252525] text-white rounded-full w-full mx-auto mt-6 px-4 py-4">
+                  <h4 className="text-center ">
+                    {" "}
+                    Your appointment is scheduled for Friday,
+                    <span className="text-[#D576FF] font-bold">
+                      November 12th
+                    </span>{" "}
+                    at<span className="text-[#D576FF] font-bold">11 am</span> in{" "}
+                    <span className="text-[#D576FF] font-bold">Faridabad.</span>{" "}
+                  </h4>
+                </div>
               </div>
             </div>
 
