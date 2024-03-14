@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 // import CustomDropDown from "./custom-dropdown";
 import {
   Select,
@@ -15,31 +15,33 @@ import InputLabel from "@mui/material/InputLabel";
 // import MenuItem from '@mui/material/MenuItem';
 import FormControl from "@mui/material/FormControl";
 import { styled } from "@mui/system";
+import { useDispatch, useSelector } from "react-redux";
+import { selectCity } from "../../store/selectedCity.js";
 // import Select from '@mui/material/Select';
-
-// StyledMenu to apply custom styles to Menu component
-const StyledMenu = styled(Menu)({
-  "& .MuiMenu-list": {
-    padding: 0,
-    paddingTop: 0,
-    paddingBottom: 0,
-  },
-});
 
 export default function SelectCityModal({ isOpen, onClose }) {
   //   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [City, setSetCity] = React.useState("");
+  const dispatch = useDispatch();
+
+  const selectedCity = useSelector((state) => state.selectedCity); // Assuming the slice name is 'selectedCity'
+
+  const [City, setSetCity] = useState("");
+
+  // useEffect(() => {
+  //   setSetCity(selectedCity);
+  // }, [selectedCity]);
 
   const handleChange = (event) => {
-    console.log("event", event);
-    setSetCity(event.target.value);
+    const selectedValue = event.target.value;
+    setSetCity(selectedValue);
+    dispatch(selectCity(selectedValue));
   };
 
   return (
     <div>
       <Modal open={isOpen} onClose={onClose}>
         <div
-          className="rounded-[50px] modal-content w-full max-w-[400px] h-[501px] bg-white p-2 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
+          className="z-[52] rounded-[50px] modal-content w-full max-w-[400px] h-[501px] bg-white p-2 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
           style={{ fontFamily: "Montserrat" }}
         >
           <div
@@ -96,10 +98,11 @@ export default function SelectCityModal({ isOpen, onClose }) {
                 // labelId="demo-simple-select-label"
                 // id="demo-simple-select"
                 variant="standard"
-                disableUnderline="true"
+                disableUnderline={true}
                 value={City}
                 label="City"
                 // placeholder="city"
+                defaultValue="select city"
                 renderValue={(value) => (value ? value : "Select an option")}
                 onChange={handleChange}
                 sx={{
@@ -111,8 +114,9 @@ export default function SelectCityModal({ isOpen, onClose }) {
                   fontWeight: 600,
                   borderRadius: "30px",
                   backgroundColor: "#fff",
-                  "& .Mui-selected": {
+                  "& .Mui-selected, & .Mui-selected:focus": {
                     color: "#C7609B", // Color for the selected option
+                    backgroundColor: "#ffffff",
                   },
                 }}
 
@@ -219,7 +223,10 @@ export default function SelectCityModal({ isOpen, onClose }) {
                 </MenuItem>
               </Select>
             </FormControl>
-            <button className="rounded-full bg-gradient-to-br from-[#AD37E0] to-[#EE2B3B] text-white font-bold text-center mt-4 py-[10px] w-full">
+            <button
+              onClick={onClose}
+              className="rounded-full bg-gradient-to-br from-[#AD37E0] to-[#EE2B3B] text-white font-bold text-center mt-4 py-[10px] w-full"
+            >
               Choose City to proceed
             </button>
           </div>
