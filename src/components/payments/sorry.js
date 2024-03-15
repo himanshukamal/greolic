@@ -27,7 +27,11 @@ export default function PaymentFailed() {
 
         <Modal open={open} onClose={handleClose} className="mx-2">
           <div className="relative rounded-[50px] modal-content w-full max-w-[400px] min-h-[512px]  bg-white top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-            <img src="/images/bg-up.png" alt="" className=" -mb-9 w-[400px] " />
+            <img
+              src="/images/bg-up.png"
+              alt=""
+              className=" -mb-9 w-[400px] h-[275px]"
+            />
             <div className=" absolute z-50 top-16 left-0 ">
               <div className="  py-1  px-2">
                 <h3 className=" text-center text-[32px] font-bold bg-gradient-to-br from-[#AD37E0] to-[#EE2B3B] text-transparent bg-clip-text">
@@ -43,7 +47,11 @@ export default function PaymentFailed() {
                 className="m-auto h-[324px] "
               />
             </div>
-            <img src="/images/bg-down.png" alt="" className=" " />
+            <img
+              src="/images/bg-down.png"
+              alt=""
+              className="absolute bottom-0 h-[275px] "
+            />
             {/* CLOSE BTN  */}
             <button
               className="absolute top-8 right-8 text-white"
