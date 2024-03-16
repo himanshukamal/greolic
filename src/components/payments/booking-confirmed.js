@@ -3,9 +3,11 @@ import { useState } from "react";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import OtpInput from "./otp-input";
 import PaymentFailed from "./sorry";
+import { useWindowSize } from "@react-hook/window-size";
 
 export default function BookingConfirmed() {
   const [open, setOpen] = useState(false);
+  const [width, height] = useWindowSize();
 
   const handleOpen = () => {
     setOpen(true);
@@ -33,7 +35,7 @@ export default function BookingConfirmed() {
         </div>
 
         <Modal open={open} onClose={handleClose}>
-          <div className="relative rounded-[50px] modal-content w-full max-w-[400px] min-h-[600px]  top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+          <div className="relative rounded-[50px] modal-content w-full max-w-[400px]   top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
             <div className="h-full bg-white rounded-[50px] mx-2 pb-2">
               {/* <img src="/images/bg-top.png" alt="" className=" h-[178px] " /> */}
               <div className="flex justify-center">
@@ -43,20 +45,24 @@ export default function BookingConfirmed() {
               <img
                 src="/images/booking.png"
                 alt=""
-                className="absolute -top-10 left-20 h-[189px] "
+                className={`absolute  ${
+                  width < 321
+                    ? "h-[130px] top-2 left-[4.5em]"
+                    : "-top-10 left-20 h-[189px]"
+                }`}
               />
 
-              <div className="py-1 px-6">
+              <div className="py-0.5 px-6">
                 {" "}
-                <h3 className=" text-[32px] font-bold bg-gradient-to-br from-[#AD37E0] to-[#EE2B3B] text-transparent bg-clip-text">
+                <h3 className=" text-[24px] font-bold bg-gradient-to-br from-[#AD37E0] to-[#EE2B3B] text-transparent bg-clip-text">
                   Booking Confirmed
                 </h3>
-                <p className=" text-[#252525] text-[12px]">
+                <p className=" text-[#252525] text-[10px]">
                   For more details go to upcoming appointments.
                 </p>
               </div>
               <div className="mx-2">
-                <div className="bg-[#252525] py-4 px-4 w-full my-2 rounded-[35px] text-white text-[11px]">
+                <div className="bg-[#252525] py-2 px-4 w-full my-2 rounded-[35px] text-white text-[11px]">
                   <div className="flex justify-around">
                     <p>Patient Name</p>
                     <p className="font-bold min-w-[133px]">Wayne Bruce</p>
@@ -83,8 +89,8 @@ export default function BookingConfirmed() {
               </div>
 
               <div className="mx-2">
-                <div className=" bg-[#FCF2FD] rounded-[35px]  py-2 px-4 my-2 w-full ">
-                  <h3 className="mt-4 text-[20px] font-bold bg-gradient-to-br from-[#AD37E0] to-[#EE2B3B] text-transparent bg-clip-text">
+                <div className=" bg-[#FCF2FD] rounded-[35px]  py-0.5 px-4 my-1 w-full ">
+                  <h3 className="mt-4 text-[16px] font-bold bg-gradient-to-br from-[#AD37E0] to-[#EE2B3B] text-transparent bg-clip-text">
                     Never Miss An Update
                   </h3>
                   <p className=" text-[#252525] text-[10px] ">
@@ -94,7 +100,9 @@ export default function BookingConfirmed() {
                   </p>
                   <input
                     type="text"
-                    className="h-[46px] w-full mb-2 rounded-full pl-6 my-4  border-none outline-none"
+                    className={
+                      "h-[46px] w-full mb-2 rounded-full pl-6 my-4  border-none outline-none"
+                    }
                     placeholder="Email ID ( Optional )"
                   />
                 </div>

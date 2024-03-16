@@ -2,9 +2,11 @@ import { Modal, Image } from "@mui/material";
 import { useState } from "react";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import Verification from "./verification";
+import { useWindowSize } from "@react-hook/window-size";
 
 export default function ConfirmBooking() {
   const [open, setOpen] = useState(false);
+  const [width, height] = useWindowSize();
 
   const handleOpen = () => {
     setOpen(true);
@@ -47,12 +49,16 @@ export default function ConfirmBooking() {
               <img
                 src="/images/loginChar.png"
                 alt=""
-                className="absolute -top-8 left-4 h-[189px] "
+                className={`absolute   ${
+                  width < 321
+                    ? "w-[125px] left-[2rem] top-[-1rem]"
+                    : "w-[194px] h-[189px] -top-8 left-4"
+                }`}
               />
 
               <div className="py-1 px-6">
                 {" "}
-                <h3 className=" text-[32px] font-bold bg-gradient-to-br from-[#AD37E0] to-[#EE2B3B] text-transparent bg-clip-text">
+                <h3 className=" text-[24px] font-bold bg-gradient-to-br from-[#AD37E0] to-[#EE2B3B] text-transparent bg-clip-text">
                   Confirm Booking
                 </h3>
                 <p className=" text-[#252525] text-[12px]">
