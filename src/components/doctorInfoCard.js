@@ -165,7 +165,7 @@ export default function DoctorInfoCard() {
               ></span>
             </span>
           </label>
-          <p className="text-white text-[10px]">
+          <p className="text-white text-[10px] max-w-[164px]">
             Get Rs. 100 OFF Discount On Technology Fee
           </p>
           <div className="border border-dashed border-black h-full absolute top-0 left-[80%]"></div>
@@ -193,22 +193,34 @@ export default function DoctorInfoCard() {
               ></span>
             </span>
           </label>
-          <p className="text-white text-[10px]">
+          <p className="text-white text-[10px] max-w-[164px]">
             Get Rs. 100 OFF Discount On Technology Fee
           </p>
           <div className="border border-dashed border-black h-full absolute top-0 left-[80%]"></div>
         </div>
       </div>
 
-      <div className="min-h-[261px] bg-[#ECC0D9] flex relative">
-        <div className="p-4">
-          <p className="text-[#252525] text-[24px] font-bold max-w-[234px] leading-[26px]">
+      <div
+        className={` bg-[#ECC0D9] flex relative ${
+          width < 321 ? "h-[200px]" : "h-[260px]"
+        }`}
+      >
+        <div className="p-4 max-w-[60%]">
+          <p
+            className={`text-[#252525] ${
+              width <= 320 ? "text-[18px]" : "text-[24px]"
+            } font-bold max-w-[234px] leading-[26px]`}
+          >
             Our App Is Now Available To Download,{" "}
             <span className="bg-gradient-to-r from-[#AD37E0] to-[#EE2B3B] text-transparent bg-clip-text">
               Hurry Up!!
             </span>
           </p>
-          <p className="text-[8px] text-gray-600 max-w-[234px]">
+          <p
+            className={`${
+              width <= 320 ? "text-[6px]" : "text-[8px]"
+            }  text-[#252525] max-w-[234px]`}
+          >
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu
             turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus
             nec fringilla accumsan.
@@ -227,9 +239,13 @@ export default function DoctorInfoCard() {
           <LazyLoadImage
             src="/Holding-Hand-Smart-Phone-Mockup-PhotoRoom.svg"
             alt="phone"
-            className={`absolute  right-0 ${
-              width <= 320 ? "w-[7em] top-[-81px]" : "top-[-103px]" // Set width to 150px for screens <= 320px
-            }`}
+            className={`absolute  right-0 
+            ${
+              width <= 320
+                ? "w-[167px] h-[394px] top-[-42px]"
+                : "top-[-49px] w-[225px] h-[503px]"
+            }
+            `}
           />
         </div>
       </div>

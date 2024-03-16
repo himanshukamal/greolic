@@ -37,7 +37,7 @@ export default function PaymentNavbar() {
   };
   return (
     <div className="relative overflow-visible">
-      <div className="fixed w-full max-w-[425px] top-[30px] z-[50] bg-gradient-to-br from-[#C133AE] to-[#D72F75]  p-2 h-[76px] overflow-visible ">
+      <div className="fixed w-full max-w-[425px] top-[30px] z-[50] bg-gradient-to-r from-[#CA3196] to-[#D82F73]  p-2 h-[76px] overflow-visible ">
         {/* white bg */}
         {/* <div className="absolute bg-white top-[-28px] opacity-5 w-[223px] h-[312px] rotate-[35deg]  right-[-52px] z-[-2]"></div> */}
         {/* logo and menu */}
@@ -72,10 +72,11 @@ export default function PaymentNavbar() {
             {!selectedCity ? (
               <button
                 onClick={handleOpenModal}
-                className="p-2 text-white rounded-full  px-4 text-[12px] font-bold"
+                className="p-2 text-white rounded-full  px-4 text-[12px] font-bold flex items-center gap-1"
               >
                 {/* Open the modal on button click */}
                 Select City
+                <LazyLoadImage src="/arrow-down.svg" alt="arrowdown" />
               </button>
             ) : (
               <p className="text-[12px] text-white font-bold px-4">

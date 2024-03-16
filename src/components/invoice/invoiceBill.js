@@ -3,13 +3,22 @@ import React from "react";
 export default function InvoiceBill() {
   return (
     <div className=" ">
-      <div className="backdrop-blur-md bg-gradient-to-br from-[#C133AE] to-[#EE2B3B] rounded-bl-[45px] pl-2 pb-2 ">
-        <p className=" pt-[150px] text-[20px] text-[#fff] opacity-25 font-bold ml-2  leading-[18px] mx-4 pl-2">
-          Your
-        </p>
-        <p className="text-[36px] text-[#fff] font-bold leading-[40px] ml-2 mx-4 pl-2">
-          Invoice
-        </p>
+      <div className="bg-gradient-to-br from-[#C133AE] to-[#EE2B3B] rounded-bl-[45px] pb-4 ">
+        <div
+          style={{
+            backgroundImage:
+              "url('/Rectangle 1716.svg'),url('/Rectangle 1713.svg')",
+            backgroundPosition: "top left,top right",
+            backgroundRepeat: "no-repeat,no-repeat",
+          }}
+        >
+          <p className=" pt-[150px] text-[20px] text-[#fff] opacity-25 font-bold ml-2  leading-[18px] mx-4 pl-2">
+            Your
+          </p>
+          <p className="text-[36px] text-[#fff] font-bold leading-[40px] ml-2 mx-4 pl-2">
+            Invoice
+          </p>
+        </div>
       </div>
 
       <div className="mx-2">
@@ -17,41 +26,41 @@ export default function InvoiceBill() {
         <p className="text-[36px] text-[#CA3BA1] font-bold leading-[18px] mx-4 ">
           Invoice
         </p> */}
-        <div className="rounded-[40px] bg-[#FCE7F3] p-4 mt-16 mx-2">
+        <div className="rounded-[40px] bg-[#FCE7F3] p-4 mt-4 mx-2">
           <div className="flex justify-between text-[14px] font-semibold">
             <p className="text-[#252525]">consultation fee</p>
             <p className="bg-gradient-to-r from-pink-500 to-red-500 text-transparent bg-clip-text">
-              Rs1000
+              Rs 1000
             </p>
           </div>
           <div className="flex justify-between text-[14px] font-semibold">
             <p className="text-[#252525]">service fee</p>
             <p className="bg-gradient-to-r from-pink-500 to-red-500 text-transparent bg-clip-text">
-              Rs1000
+              Rs 300
             </p>
           </div>
           <div className="flex justify-between text-[14px] font-semibold">
             <p className="text-[#252525]">Technology fee</p>
             <p className="bg-gradient-to-r from-pink-500 to-red-500 text-transparent bg-clip-text">
-              Rs1000
+              Rs100
             </p>
           </div>
           <div className="flex justify-between text-[14px] font-semibold">
             <p className="text-[#252525]">test</p>
             <p className="bg-gradient-to-r from-pink-500 to-red-500 text-transparent bg-clip-text">
-              Rs1000
+              Rs 100
             </p>
           </div>
           <div className="flex justify-between text-[14px] font-semibold">
             <p className="text-[#252525]">surgery</p>
             <p className="bg-gradient-to-r from-pink-500 to-red-500 text-transparent bg-clip-text">
-              Rs1000
+              Rs 0
             </p>
           </div>
           <div className="flex justify-between text-[14px] font-semibold">
             <p className="text-[#252525]">medicine</p>
             <p className="bg-gradient-to-r from-pink-500 to-red-500 text-transparent bg-clip-text">
-              Rs1000
+              Rs 0
             </p>
           </div>
           <div className="flex justify-between text-[14px] font-semibold">
@@ -62,13 +71,13 @@ export default function InvoiceBill() {
               </span>
             </p>
             <p className="bg-gradient-to-r from-pink-500 to-red-500 text-transparent bg-clip-text">
-              Rs1000
+              Rs -400
             </p>
           </div>
 
-          <button className="bg-[#D73992] text-white font-bold uppercase w-full  rounded-full mt-2 p-2">
-            Total{" "}
-          </button>
+          <div className="bg-[#D73992] flex justify-between  text-white font-bold uppercase w-full  rounded-full mt-2 p-2 px-4">
+            <p>Total</p> <p>1100</p>
+          </div>
         </div>
       </div>
     </div>
