@@ -72,7 +72,7 @@ const OtpInput = () => {
                 onBlur={() => setActiveInput(-1)}
                 onKeyDown={(e) => handleKeyDown(e, i)}
                 onChange={(e) => handleChange(e, i)}
-                className="w-full text-black border rounded-[50px] border-[#ced4da] h-full text-center"
+                className="w-full text-black  rounded-[50px] focus:outline-none h-full text-center"
                 id={`pin_${i}`}
                 type="text"
                 value={digit !== -1 ? digit : ""}
@@ -82,7 +82,13 @@ const OtpInput = () => {
         </div>
       </form>
 
-      <div className="w-full px-2 my-4">
+      <div className="w-full px-4 my-4 mx-4">
+        <div className="flex justify-between w-full  px-2">
+          <p className="text-[#9C527C] cursor-pointer text-[12px] font-medium">
+            Resend OTP in
+          </p>
+          <p className="font-bold text-[12px]">00:{seconds}</p>
+        </div>
         <LinearProgress
           variant="determinate"
           value={progress}
@@ -95,13 +101,6 @@ const OtpInput = () => {
             },
           }}
         />
-      </div>
-
-      <div className="flex justify-between w-full mb-4 px-2">
-        <p className="text-[#9C527C] cursor-pointer text-[12px] font-medium">
-          Resend OTP in
-        </p>
-        <p className="font-bold text-[12px]">00:{seconds}</p>
       </div>
     </div>
   );

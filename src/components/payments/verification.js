@@ -23,7 +23,11 @@ export default function Verification() {
         <div className="mx-2">
           <button
             onClick={handleOpen}
-            className=" text-white rounded-full w-full my-4 h-[50px] bg-gradient-to-br from-[#AD37E0] to-[#EE2B3B] font-bold uppercase text-[20px] shadow-md shadow-rose-500"
+            style={{
+              boxShadow:
+                "0px 4px 10px rgba(173, 55, 224, 0.5), 0px 6px 30px rgba(238, 43, 59, 0.5)",
+            }}
+            className=" text-white rounded-full w-full my-4 h-[50px] bg-gradient-to-br from-[#AD37E0] to-[#EE2B3B] font-bold uppercase text-[20px]"
           >
             PROCEED
           </button>
@@ -61,8 +65,11 @@ export default function Verification() {
                 <BookingConfirmed />
               </div>
 
-              <p className=" font-extrabold text-center text-sm my-6 text-[#252525] ">
-                Didn’t Receive? Resend
+              <p className="  text-center text-sm my-6 text-[#252525] text-[14px]">
+                Didn’t Receive?{" "}
+                <span className="font-extrabold bg-gradient-to-br from-[#AD37E0] to-[#EE2B3B] text-transparent bg-clip-text">
+                  Resend
+                </span>
               </p>
             </div>
 

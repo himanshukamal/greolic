@@ -82,7 +82,7 @@ export default function ConfirmBooking() {
               <Verification />
               <div className="mx-2">
                 <div className=" bg-[#252525] text-white rounded-full w-full mx-auto mt-6 px-4 py-4">
-                  <h4 className="text-center ">
+                  <h4 className="text-center text-[14px]">
                     {" "}
                     Your appointment is scheduled for Friday,
                     <span className="text-[#D576FF] font-bold">

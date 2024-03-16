@@ -20,7 +20,11 @@ export default function PaymentFailed() {
 
         <button
           onClick={handleOpen}
-          className=" text-white rounded-full w-full mx-auto my-4 h-[50px] bg-gradient-to-br from-[#AD37E0] to-[#EE2B3B] font-bold uppercase text-[20px] shadow-md shadow-rose-500"
+          style={{
+            boxShadow:
+              "0px 4px 10px rgba(173, 55, 224, 0.5), 0px 6px 30px rgba(238, 43, 59, 0.5)",
+          }}
+          className=" text-white rounded-full w-full mx-auto my-4 h-[50px] bg-gradient-to-br from-[#AD37E0] to-[#EE2B3B] font-bold uppercase text-[20px]"
         >
           Submit
         </button>
