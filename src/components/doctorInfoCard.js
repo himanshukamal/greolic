@@ -1,16 +1,30 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import { useWindowSize } from "@react-hook/window-size";
+import { motion, AnimatePresence, useCycle } from "framer-motion";
 
 export default function DoctorInfoCard() {
   const [isChecked, setIsChecked] = useState(false);
+  const [healthCheck, setHealthCheck] = useState(false);
   const [width, height] = useWindowSize();
+  // const [currentCard, setCurrentCard] = useState(0);
+  const [currentCard, cycleCard] = useCycle(0, 1, 2);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      cycleCard(); // Cycle through the cards
+    }, 4000); // Change card every 4 seconds
+
+    return () => clearInterval(interval);
+  }, [cycleCard]);
 
   const handleRadioChange = () => {
     console.log("you are in handleradio");
     setIsChecked(!isChecked);
   };
-
+  const handleHealthChange = () => {
+    setHealthCheck(!healthCheck);
+  };
   return (
     <div className="">
       <div className="flex items-center p-4">
@@ -48,99 +62,49 @@ export default function DoctorInfoCard() {
         elit sed risus. Maecenas eget condimentum velit, sit amet feugiat
         lectus.
       </p>
-      <p className="mt-4 mx-4 text-[#252525] font-bold text-[16px]">Ratings</p>
-      <div className="flex justify-between flex-wrap mt-2 mx-2">
-        <div className="flex flex-col justify-center items-center">
-          <div className="w-[80px] h-[80px] bg-[#F3EDF4] grid place-items-center rounded-full">
-            <div className="bg-gradient-to-br from-[#fff] via-[#B335CF] to-[#EC2B3F] w-[54px] h-[54px] rounded-full p-[1px]">
-              <div
-                className="w-full h-full  rounded-full grid place-items-center drop-shadow-xl shadow-2xl  shadow-rose-400"
-                style={{
-                  backgroundImage: "url('/ratingbg.svg')",
-                  backgroundPosition: "center",
-                }}
-              >
-                <p className="font-bold bg-gradient-to-r from-pink-500 to-red-500 text-transparent bg-clip-text">
-                  4.5
-                </p>
-              </div>
-              {/* Your content here */}
-            </div>
-          </div>
-          <p className="text-[10px] font-bold bg-gradient-to-r from-pink-500 to-red-500 text-transparent bg-clip-text">
-            Attention
-          </p>
-        </div>
-        <div className="flex flex-col justify-center items-center">
-          <div className="w-[80px] h-[80px] bg-[#F3EDF4] grid place-items-center rounded-full">
-            <div className="bg-gradient-to-br from-[#fff] via-[#B335CF] to-[#EC2B3F] w-[54px] h-[54px] rounded-full p-[1px]">
-              <div
-                className="w-full h-full  rounded-full grid place-items-center drop-shadow-xl shadow-2xl  shadow-rose-400"
-                style={{
-                  backgroundImage: "url('/ratingbg.svg')",
-                  backgroundPosition: "center",
-                }}
-              >
-                <p className="font-bold bg-gradient-to-r from-pink-500 to-red-500 text-transparent bg-clip-text">
-                  4.5
-                </p>
-              </div>
-              {/* Your content here */}
-            </div>
-          </div>
-          <p className="text-[10px] font-bold bg-gradient-to-r from-pink-500 to-red-500 text-transparent bg-clip-text">
-            Dedication
-          </p>
-        </div>
-        <div className="flex flex-col justify-center items-center">
-          <div className="w-[80px] h-[80px] bg-[#F3EDF4] grid place-items-center rounded-full">
-            <div className="bg-gradient-to-br from-[#fff] via-[#B335CF] to-[#EC2B3F] w-[54px] h-[54px] rounded-full p-[1px]">
-              <div
-                className="w-full h-full  rounded-full grid place-items-center drop-shadow-xl shadow-2xl  shadow-rose-400"
-                style={{
-                  backgroundImage: "url('/ratingbg.svg')",
-                  backgroundPosition: "center",
-                }}
-              >
-                <p className="font-bold bg-gradient-to-r from-pink-500 to-red-500 text-transparent bg-clip-text">
-                  4.5
-                </p>
-              </div>
-              {/* Your content here */}
-            </div>
-          </div>
-          <p className="text-[10px] font-bold bg-gradient-to-r from-pink-500 to-red-500 text-transparent bg-clip-text">
-            Passion
-          </p>
-        </div>
-        <div className="flex flex-col justify-center items-center">
-          <div className="w-[80px] h-[80px] bg-[#F3EDF4] grid place-items-center rounded-full">
-            <div className="bg-gradient-to-br from-[#fff] via-[#B335CF] to-[#EC2B3F] w-[54px] h-[54px] rounded-full p-[1px]">
-              <div
-                className="w-full h-full  rounded-full grid place-items-center drop-shadow-xl shadow-2xl  shadow-rose-400"
-                style={{
-                  backgroundImage: "url('/ratingbg.svg')",
-                  backgroundPosition: "center",
-                }}
-              >
-                <p className="font-bold bg-gradient-to-r from-pink-500 to-red-500 text-transparent bg-clip-text">
-                  4.5
-                </p>
-              </div>
-              {/* Your content here */}
-            </div>
-          </div>
-          <p className="text-[10px] font-bold bg-gradient-to-r from-pink-500 to-red-500 text-transparent bg-clip-text">
-            Skill
-          </p>
+      <div className="flex justify-between mx-4 mt-4">
+        <p className=" text-[#252525] font-bold text-[16px]">Ratings</p>
+        <PinkProgressBar currentCard={currentCard} />
+      </div>
+
+      <div className="flex justify-between overflow-hidden gap-4 mt-2 mx-2">
+        <div className="flex gap-4 animate-marquee">
+          <AnimatePresence initial={false}>
+            {["Attention", "Dedication", "Passion", "Skill", "Speed"].map(
+              (category, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, x: 100 }} // Initial animation state (hidden and off-screen)
+                  animate={{ opacity: 1, x: 0 }} // Animation to visible and centered
+                  transition={{ duration: 0.5, delay: index * 0.2 }} // Animation duration and delay
+                  exit={{ opacity: 0, x: -100 }} // Animation on exit
+                  className="flex flex-col justify-center items-center"
+                >
+                  <RatingCircles />
+                  <p className="text-[10px] font-bold bg-gradient-to-r from-pink-500 to-red-500 text-transparent bg-clip-text">
+                    {category}
+                  </p>
+                </motion.div>
+              )
+            )}
+          </AnimatePresence>
         </div>
       </div>
       {/* coupon component */}
       <div className="h-[376px] bg-[#252525] mt-8">
-        <p className="text-[20px] text-gray-600 font-bold mx-4 pt-4">Your</p>
-        <p className="text-[36px] text-white font-bold leading-[18px] mx-4 ">
-          Coupons
-        </p>
+        <div className="flex justify-between items-end">
+          <div className="">
+            <p className="text-[20px] text-gray-600 font-bold mx-4 pt-4">
+              Your
+            </p>
+            <p className="text-[36px] text-white font-bold leading-[18px] mx-4 ">
+              Coupons
+            </p>
+          </div>
+          <p>
+            <WhiteProgressBar currentCard={currentCard} />
+          </p>
+        </div>
 
         <div className="flex flex-col justify-center rounded-2xl backdrop-blur-2xl bg-[#3b3b3b] mx-4 p-4 mt-6 relative h-[110px]">
           <input
@@ -173,20 +137,20 @@ export default function DoctorInfoCard() {
         <div className="flex flex-col justify-center rounded-2xl backdrop-blur-2xl bg-[#3b3b3b] mx-4 p-4 mt-4 relative h-[110px]">
           <input
             type="radio"
-            id="consult100"
-            checked={isChecked}
-            onClick={handleRadioChange}
+            id="health100"
+            checked={healthCheck}
+            onClick={handleHealthChange}
             className="sr-only"
           />
           <label
-            htmlFor="consult100"
+            htmlFor="health100"
             className="block uppercase text-[24px] font-bold bg-gradient-to-br from-[#E29FFF] to-[#FF515F] text-transparent bg-clip-text relative z-10 cursor-pointer"
           >
             Health100
             <span className="absolute top-0 left-0 w-full h-full">
               <span
                 className={`rounded-full absolute top-[0.9rem] right-2 w-[30px] h-[30px] transition-all duration-300 border-4 border-[#252525] ${
-                  isChecked
+                  healthCheck
                     ? "bg-gradient-to-br from-pink-500 to-red-500 shadow-sm shadow-rose-500"
                     : "bg-[#3b3b3b]"
                 }`}
@@ -252,3 +216,49 @@ export default function DoctorInfoCard() {
     </div>
   );
 }
+
+const PinkProgressBar = ({ currentCard }) => {
+  const progressWidth = ((currentCard + 1) / 3) * 100; // Calculate progress width based on current card index
+
+  return (
+    <div className="h-2  bg-white relative w-[40px] mr-2 rounded-full">
+      <div
+        className="h-full bg-pink-500 absolute top-0 left-0 rounded-full"
+        style={{ width: `${progressWidth}%`, transition: "width 1s" }}
+      ></div>
+    </div>
+  );
+};
+
+const WhiteProgressBar = ({ currentCard }) => {
+  const progressWidth = ((currentCard + 1) / 3) * 100; // Calculate progress width based on current card index
+
+  return (
+    <div className="h-2  bg-gray-500 relative w-[40px] mr-2 rounded-full">
+      <div
+        className="h-full bg-white absolute top-0 left-0 rounded-full"
+        style={{ width: `${progressWidth}%`, transition: "width 1s" }}
+      ></div>
+    </div>
+  );
+};
+const RatingCircles = () => {
+  return (
+    <div className="w-[80px] h-[80px] bg-[#F3EDF4] grid place-items-center rounded-full">
+      <div className="bg-gradient-to-br from-[#fff] via-[#B335CF] to-[#EC2B3F] w-[54px] h-[54px] rounded-full p-[1px]">
+        <div
+          className="w-full h-full  rounded-full grid place-items-center drop-shadow-xl shadow-2xl  shadow-rose-400"
+          style={{
+            backgroundImage: "url('/ratingbg.svg')",
+            backgroundPosition: "center",
+          }}
+        >
+          <p className="font-bold bg-gradient-to-r from-pink-500 to-red-500 text-transparent bg-clip-text">
+            4.5
+          </p>
+        </div>
+        {/* Your content here */}
+      </div>
+    </div>
+  );
+};
