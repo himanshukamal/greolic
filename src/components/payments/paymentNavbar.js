@@ -88,7 +88,7 @@ export default function PaymentNavbar() {
               <LazyLoadImage src="/sidemenu.svg" />
             </button>
             <Drawer anchor="right" open={isDrawerOpen} onClose={toggleDrawer}>
-              <div className="p-4 w-[80vw] bg-[#FCF2FC] h-dvh">
+              <div className="p-4 w-[80vw] bg-[#FCF2FC] overflow-scroll noscrollbar">
                 {/* Add your drawer content here */}
                 <div className="flex justify-between">
                   <LazyLoadImage src="/sidebarLogo.svg" alt="logo" />
@@ -155,6 +155,11 @@ export default function PaymentNavbar() {
                     className="mr-2 w-[24px] h-[24px]"
                   />
                   <p className="font-semibold">Profile</p>
+                  <LazyLoadImage
+                    src="icons/redlock.svg"
+                    alt="mobile1"
+                    className="ml-2 mr-2 w-[14px] h-[14px]"
+                  />
                 </div>
                 <div className="mt-2 rounded-full bg-transparent focus:bg-white flex h-[48px] items-center px-4">
                   <LazyLoadImage
