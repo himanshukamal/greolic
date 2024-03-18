@@ -18,9 +18,11 @@ import { styled } from "@mui/system";
 import { useDispatch, useSelector } from "react-redux";
 import { selectCity } from "../../store/selectedCity.js";
 // import Select from '@mui/material/Select';
+import { useWindowSize } from "@react-hook/window-size";
 
 export default function SelectCityModal({ isOpen, onClose }) {
   //   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [width, height] = useWindowSize();
   const dispatch = useDispatch();
 
   const selectedCity = useSelector((state) => state.selectedCity); // Assuming the slice name is 'selectedCity'
@@ -39,13 +41,15 @@ export default function SelectCityModal({ isOpen, onClose }) {
 
   return (
     <div>
-      <Modal open={isOpen} onClose={onClose}>
+      <Modal open={isOpen} onClose={onClose} className="mx-2">
         <div
           className="z-[52] rounded-[50px] modal-content w-full max-w-[400px] h-[501px] bg-white p-2 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
           style={{ fontFamily: "Montserrat" }}
         >
           <div
-            className="h-[185px] w-full relative"
+            className={`w-full relative ${
+              width < 321 ? "h-[155px]" : "h-[185px]"
+            }`}
             style={{
               backgroundImage: "url('/locationbg.svg')",
               objectFit: "cover",

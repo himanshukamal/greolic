@@ -101,7 +101,7 @@ export default function DoctorInfoCard() {
               Coupons
             </p>
           </div>
-          <p>
+          <p className="mr-2">
             <WhiteProgressBar currentCard={currentCard} />
           </p>
         </div>

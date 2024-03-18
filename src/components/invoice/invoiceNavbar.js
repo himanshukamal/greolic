@@ -353,7 +353,9 @@ export default function InvoiceNavbar() {
         {/* end of second card */}
         {/* carousel end */}
       </div>
-      <SelectCityModal isOpen={isModalOpen} onClose={handleCloseModal} />
+      <div className="mx-2">
+        <SelectCityModal isOpen={isModalOpen} onClose={handleCloseModal} />
+      </div>
     </div>
   );
 }
