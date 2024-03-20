@@ -1,21 +1,30 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { LazyLoadImage } from "react-lazy-load-image-component";
+import { Select, MenuItem, Drawer } from "@mui/material";
 import { IoIosArrowDown } from "react-icons/io";
-import { Select, MenuItem, Drawer, Modal } from "@mui/material";
-import AnimatedCarousel from "./animatedCarousel";
+import { motion, AnimatePresence } from "framer-motion";
+import { Link } from "react-router-dom";
 import { useWindowSize } from "@react-hook/window-size";
+// import SelectCityModal from "../modals/selectCityModal";
+import { useSelector } from "react-redux";
 import SelectCityModal from "./modals/selectCityModal";
 
 export default function Navbar() {
+  const [showFirstCard, setShowFirstCard] = useState(true);
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const [width, height] = useWindowSize();
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [selectedCity, setSelectedCity] = useState("");
 
-  const handleSelectCity = (event) => {
-    setSelectedCity(event.target.value);
-    // Close the modal after selecting the city
-  };
+  const selectedCity = useSelector((state) => state.city.selectedCity);
+
+  console.log("selectedCity in payment navbar", selectedCity);
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setShowFirstCard((prev) => !prev);
+    }, 3000); // Change the interval as needed
+
+    return () => clearInterval(interval);
+  }, []);
 
   const toggleDrawer = () => {
     setIsDrawerOpen(!isDrawerOpen);
@@ -23,28 +32,63 @@ export default function Navbar() {
   const handleOpenModal = () => {
     setIsModalOpen(true);
   };
+
   const handleCloseModal = () => {
     setIsModalOpen(false);
   };
-
   return (
-    <div className="flex flex-col h-[80px]">
-      <div className="z-[52] fixed top-[30px] max-w-[425px] mx-auto left-0 right-0 z-49 bg-gradient-to-br from-[#E0379E] to-[#EE2B3B] p-[0.8rem]">
-        <div className="flex justify-between min-h-[54px] items-center">
-          <LazyLoadImage src="/doclogo.svg" alt="My Image" />
-          <div className="flex">
-            <button
-              onClick={handleOpenModal}
-              className="p-2 text-white font-semibold rounded-full bg-[#bb255e] px-4 text-[12px]"
-            >
-              {/* Open the modal on button click */}
-              City
-            </button>
+    <div className="relative overflow-visible">
+      <div className="fixed w-full max-w-[425px] top-[30px] z-[50] bg-gradient-to-r from-[#CE318C] to-[#DC2E68]  p-2 h-[76px] overflow-visible ">
+        {/* white bg */}
+        {/* <div className="absolute bg-white top-[-28px] opacity-5 w-[223px] h-[312px] rotate-[35deg]  right-[-52px] z-[-2]"></div> */}
+        {/* logo and menu */}
+        <div
+          className="fixed top-[30px] max-w-[425px] mx-auto left-0 right-0  px-4 flex justify-between items-center h-[76px]"
+          style={{
+            backgroundImage:
+              "url('/Rectangle 1716.svg'),url('/Rectangle 1713.svg')",
+            backgroundPosition: "left -30px, right -30px",
+            backgroundRepeat: "no-repeat,no-repeat",
+          }}
+        >
+          <div className="flex items-center">
+            {/* <Link to="/landing">
+              <LazyLoadImage
+                src="/eva_arrow-back-fill.svg"
+                alt="My Image"
+                //   className="w-[10px] h-[10px]"
+                // effect="blur" // Optional, for blur-up effect
+              />
+            </Link> */}
+            <LazyLoadImage
+              src="/doclogo.svg"
+              alt="My Image"
+              className=" ml-2"
+              // effect="blur" // Optional, for blur-up effect
+            />
+          </div>
+
+          {/* droopdown and sidebar */}
+          <div className="flex items-center">
+            {!selectedCity ? (
+              <button
+                onClick={handleOpenModal}
+                className="p-2 text-white rounded-full  px-4 text-[12px] font-bold"
+              >
+                {/* Open the modal on button click */}
+                Select City
+              </button>
+            ) : (
+              <p className="text-[12px] text-white font-bold px-4">
+                {selectedCity}
+              </p>
+            )}
+
             <button onClick={toggleDrawer}>
               <LazyLoadImage src="/sidemenu.svg" />
             </button>
             <Drawer anchor="right" open={isDrawerOpen} onClose={toggleDrawer}>
-              <div className="p-4 w-[80vw] bg-[#FCF2FC] h-dvh">
+              <div className="p-4 w-[80vw] bg-[#FCF2FC] overflow-scroll noscrollbar">
                 {/* Add your drawer content here */}
                 <div className="flex justify-between">
                   <LazyLoadImage src="/sidebarLogo.svg" alt="logo" />
@@ -111,6 +155,11 @@ export default function Navbar() {
                     className="mr-2 w-[24px] h-[24px]"
                   />
                   <p className="font-semibold">Profile</p>
+                  <LazyLoadImage
+                    src="icons/redlock.svg"
+                    alt="mobile1"
+                    className="ml-2 mr-2 w-[14px] h-[14px]"
+                  />
                 </div>
                 <div className="mt-2 rounded-full bg-transparent focus:bg-white flex h-[48px] items-center px-4">
                   <LazyLoadImage
@@ -228,9 +277,86 @@ export default function Navbar() {
             </Drawer>
           </div>
         </div>
-      </div>
 
-      <SelectCityModal isOpen={isModalOpen} onClose={handleCloseModal} />
+        {/* animated carousel */}
+        <div className="overflow-hidden mt-2 ">
+          <div className="flex justify-center pb-1 rounded-full">
+            <AnimatePresence>
+              {showFirstCard ? (
+                <motion.div
+                  key="first"
+                  initial={{ opacity: 0, x: "10%" }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0, x: "-10%" }}
+                  transition={{ duration: 0.5, ease: "easeIn" }}
+                >
+                  <div className="w-[196px] h-[50px] rounded-full bg-[#F3EDF4] text-center mx-auto flex items-center justify-evenly mt-[40px] shadow-sm">
+                    <div className="rounded-full w-[30px] h-[30px] bg-[#F3EDF4] drop-shadow-xl grid place-items-center">
+                      <LazyLoadImage
+                        src="/HospitalLocation.svg"
+                        alt="Hospital Location"
+                      />
+                    </div>
+                    <div className="flex flex-col">
+                      <p className="text-[13px] font-bold bg-gradient-to-br from-[#AD37E0] to-[#EE2B3B] text-transparent bg-clip-text">
+                        50
+                      </p>
+                      <p className="text-[11px] text-black font-bold leading-[9px]">
+                        Cities
+                      </p>
+                    </div>
+                    <div className="rounded-full w-[30px] h-[30px] bg-[#F3EDF4] drop-shadow-xl grid place-items-center">
+                      <LazyLoadImage
+                        src="/doctoricon.svg"
+                        alt="Hospital Location"
+                      />
+                    </div>
+                    <div className="flex flex-col">
+                      <p className="text-[13px] font-bold bg-gradient-to-br from-[#AD37E0] to-[#EE2B3B] text-transparent bg-clip-text">
+                        60
+                      </p>
+                      <p className="text-[11px] text-black font-bold leading-[9px]">
+                        Clinics
+                      </p>
+                    </div>
+                  </div>
+                </motion.div>
+              ) : (
+                <motion.div
+                  key="second"
+                  initial={{ opacity: 0, x: "10%" }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0, x: "-10%" }}
+                  transition={{ duration: 0.5, ease: "easeIn" }}
+                >
+                  <div className="px-4 h-[50px] rounded-full bg-[#F3EDF4] text-center mx-auto flex items-center justify-evenly mt-[40px] shadow-sm">
+                    <div className="rounded-full w-[30px] h-[30px] bg-[#F3EDF4] drop-shadow-xl grid place-items-center">
+                      <LazyLoadImage
+                        src="/icons/accounticon.svg"
+                        alt="Hospital Location"
+                      />
+                    </div>
+                    <div className="flex flex-col">
+                      <p className="text-[13px] font-bold bg-gradient-to-br from-[#AD37E0] to-[#EE2B3B] text-transparent bg-clip-text">
+                        1.25L
+                      </p>
+                      <p className="text-[11px] text-black font-bold leading-[9px]">
+                        Patients
+                      </p>
+                    </div>
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </div>
+        </div>
+
+        {/* end of second card */}
+        {/* carousel end */}
+      </div>
+      <div className="mx-2">
+        <SelectCityModal isOpen={isModalOpen} onClose={handleCloseModal} />
+      </div>
     </div>
   );
 }

@@ -284,10 +284,10 @@ export default function InvoiceNavbar() {
               {showFirstCard ? (
                 <motion.div
                   key="first"
-                  initial={{ opacity: 0, x: "60%" }}
+                  initial={{ opacity: 0, x: "10%" }}
                   animate={{ opacity: 1, x: 0 }}
-                  exit={{ opacity: 0, x: "-60%" }}
-                  transition={{ duration: 0.3, ease: "easeIn" }}
+                  exit={{ opacity: 0, x: "-10%" }}
+                  transition={{ duration: 0.5, ease: "easeIn" }}
                 >
                   <div className="w-[196px] h-[50px] rounded-full bg-[#F3EDF4] text-center mx-auto flex items-center justify-evenly mt-[40px] shadow-sm">
                     <div className="rounded-full w-[30px] h-[30px] bg-[#F3EDF4] drop-shadow-xl grid place-items-center">
@@ -323,10 +323,10 @@ export default function InvoiceNavbar() {
               ) : (
                 <motion.div
                   key="second"
-                  initial={{ opacity: 0, x: "60%" }}
+                  initial={{ opacity: 0, x: "10%" }}
                   animate={{ opacity: 1, x: 0 }}
-                  exit={{ opacity: 0, x: "-60%" }}
-                  transition={{ duration: 0.3, ease: "easeIn" }}
+                  exit={{ opacity: 0, x: "-10%" }}
+                  transition={{ duration: 0.5, ease: "easeIn" }}
                 >
                   <div className="px-4 h-[50px] rounded-full bg-[#F3EDF4] text-center mx-auto flex items-center justify-evenly mt-[40px] shadow-sm">
                     <div className="rounded-full w-[30px] h-[30px] bg-[#F3EDF4] drop-shadow-xl grid place-items-center">
