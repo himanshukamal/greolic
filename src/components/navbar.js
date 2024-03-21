@@ -88,7 +88,7 @@ export default function Navbar() {
               <LazyLoadImage src="/sidemenu.svg" />
             </button>
             <Drawer anchor="right" open={isDrawerOpen} onClose={toggleDrawer}>
-              <div className="p-4 w-[80vw] bg-[#FCF2FC] overflow-scroll noscrollbar">
+              <div className="p-4 w-[80vw] bg-[#FCF2FC] overflow-scroll noscrollbar min-h-[100vh]">
                 {/* Add your drawer content here */}
                 <div className="flex justify-between">
                   <LazyLoadImage src="/sidebarLogo.svg" alt="logo" />
